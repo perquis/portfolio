@@ -21,17 +21,27 @@
     "types": ["node", "@testing-library/jest-dom"],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     ".next/types/**/*.ts",
     "./@types/**/*.d.ts",
     "jest.setup.ts",
     "./.storybook/**/*",
-    "next.config.mjs"
+    "next.config.ts"
   ],
-  "exclude": ["node_modules", "jest.config.ts"]
+  "exclude": [
+    "node_modules",
+    "jest.config.ts",
+    "dist",
+    "coverage",
+    ".next",
+    ".storybook",
+    "cypress",
+    "public"
+  ]
 }

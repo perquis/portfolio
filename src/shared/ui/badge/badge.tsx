@@ -11,7 +11,14 @@ type TBadge = {
   border?: boolean;
 } & ComponentProps<"span">;
 
-export default function Badge({ children, color, className, border, rounded = "default", ...props }: TBadge) {
+export default function Badge({
+  children,
+  color,
+  className,
+  border,
+  rounded = "default",
+  ...props
+}: TBadge) {
   const colorClass = getColorClass(color);
 
   return (

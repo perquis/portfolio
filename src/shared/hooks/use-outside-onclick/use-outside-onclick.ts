@@ -5,7 +5,10 @@ import { useCallback, useEffect, useState } from "react";
 
 import { useEventCallback } from "@/shared/hooks";
 
-const useOutsideOnClick = <T extends Element | null>(ref: RefObject<T>, close: () => void) => {
+const useOutsideOnClick = <T extends Element | null>(
+  ref: RefObject<T>,
+  close: () => void,
+) => {
   const [isOutsideElement, setIsOutsideElement] = useState(false);
 
   const callback = useCallback(

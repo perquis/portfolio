@@ -173,8 +173,11 @@ describe("Badge", () => {
       color: "zinc",
       rounded: "full",
     },
-  ] as BadgeTestInput[])("renders correctly for color $color and rounded $rounded", ({ color, rounded }) => {
-    const { asFragment } = render(<Badge color={color} rounded={rounded} />);
-    expect(asFragment()).toMatchSnapshot();
-  });
+  ] as BadgeTestInput[])(
+    "renders correctly for color $color and rounded $rounded",
+    ({ color, rounded }) => {
+      const { asFragment } = render(<Badge color={color} rounded={rounded} />);
+      expect(asFragment()).toMatchSnapshot();
+    },
+  );
 });

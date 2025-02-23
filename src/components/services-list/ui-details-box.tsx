@@ -4,7 +4,9 @@ import { Paragraph, Section, Title } from "@/shared/ui";
 
 import type { Chip } from "./ui-list";
 
-export const DetailsBox: FC<Record<"selected", Chip>> = ({ selected: { label, description } }) => {
+export const DetailsBox: FC<Record<"selected", Chip>> = ({
+  selected: { label, description },
+}) => {
   return (
     <Section
       className="mt-5 gap-1 rounded-[20px] border border-zinc-200 bg-white p-1 shadow dark:border-zinc-800 dark:bg-zinc-950"

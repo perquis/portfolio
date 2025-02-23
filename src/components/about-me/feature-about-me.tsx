@@ -10,10 +10,17 @@ export const AboutMe = () => {
 
   return (
     <Section className="items-start gap-5">
-      <Avatar src={placeholders.images} alt="Damian Werens" rounded="full" size="large" />
+      <Avatar
+        src={placeholders.images}
+        alt="Damian Werens"
+        rounded="full"
+        size="large"
+      />
       <Section>
         <Title level="h6">Damian Werens</Title>
-        <Paragraph className="!text-zinc-500">Full-Stack Developer & Digital Designer</Paragraph>
+        <Paragraph className="!text-zinc-500">
+          Full-Stack Developer & Digital Designer
+        </Paragraph>
       </Section>
       <Paragraph>{t("HOME_META_DESCRIPTION")}</Paragraph>
     </Section>

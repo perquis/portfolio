@@ -12,10 +12,9 @@ export const BeforeAndAfterSnippets = () => {
     { highlighted, status } = useDiffPreview();
 
   if (status === InteractiveStatus.ERROR) return <></>;
-  if (status === InteractiveStatus.LOADING) return <></>;
 
   const getLabel = (key: number) =>
-    key ? "CODE_COMPARISON_BEFORE" : "CODE_COMPARISON_AFTER";
+    key ? "CODE_COMPARISON_AFTER" : "CODE_COMPARISON_BEFORE";
 
   return (
     <div className="relative grid md:grid-cols-2 md:divide-x md:divide-border">

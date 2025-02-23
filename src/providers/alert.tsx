@@ -15,7 +15,10 @@ import { createPortal } from "react-dom";
 import type { Nullable } from "@/interfaces/utility-types";
 import { Alert } from "@/shared/ui";
 
-type TAlertProvider = { alert: AlertOrNull; setAlert: (alert: AlertOrNull) => void };
+type TAlertProvider = {
+  alert: AlertOrNull;
+  setAlert: (alert: AlertOrNull) => void;
+};
 type TAlertContext = Nullable<ComponentProps<typeof Alert>>;
 type AlertOrNull = Nullable<TAlertContext>;
 
@@ -35,7 +38,11 @@ export default function AlertProvider({ children }: PropsWithChildren) {
   return (
     <AlertContext.Provider value={value}>
       {children}
-      {alert && createPortal(<Alert {...alert} close={close} />, document.getElementById("alerts")!)}
+      {alert &&
+        createPortal(
+          <Alert {...alert} close={close} />,
+          document.getElementById("alerts")!,
+        )}
     </AlertContext.Provider>
   );
 }

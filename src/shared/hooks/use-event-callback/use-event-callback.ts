@@ -8,9 +8,17 @@ type UseEventCallbackProps<T> = {
   active?: boolean;
 };
 
-type UseEventCallback = <T>({ eventName, callback, active }: UseEventCallbackProps<T>) => void;
+type UseEventCallback = <T>({
+  eventName,
+  callback,
+  active,
+}: UseEventCallbackProps<T>) => void;
 
-const useEventCallback: UseEventCallback = ({ eventName, callback, active = true }) => {
+const useEventCallback: UseEventCallback = ({
+  eventName,
+  callback,
+  active = true,
+}) => {
   useEffect(() => {
     if (active) {
       window.addEventListener(eventName, callback as () => void);

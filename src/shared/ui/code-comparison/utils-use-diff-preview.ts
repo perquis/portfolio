@@ -8,14 +8,12 @@ import { useCodeComparisonContext } from "./provider-code-comparison";
 
 export type HighlightedCode = [before: string, after: string];
 
-const initialHighlightedCode: HighlightedCode = ["", ""];
-
 export const useDiffPreview = () => {
   const theme = useSelectedTheme(),
     { language: lang, beforeCode, afterCode } = useCodeComparisonContext()!,
     [status, actions] = useInteractiveActions();
 
-  const [highlighted, setHighlighted] = useState(initialHighlightedCode),
+  const [highlighted, setHighlighted] = useState([beforeCode, afterCode]),
     shikiOptions = useMemo(() => ({ lang, theme }), [lang, theme]);
 
   const beforeCodeHtml = codeToHtml(beforeCode, shikiOptions),
@@ -35,7 +33,8 @@ export const useDiffPreview = () => {
       .catch(actions.setError);
 
     return actions.resetStatus;
-  }, [theme, actions, retrieveCodeComparisonAsync]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme]);
 
   return {
     highlighted,

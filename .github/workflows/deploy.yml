@@ -15,28 +15,31 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Set GITHUB_MESSAGE
+      - name: 📩 Set GITHUB_MESSAGE
         run: echo "GITHUB_MESSAGE=${{ github.event.head_commit.message }}" >> $GITHUB_ENV
 
-      - name: Check if the commit message contains 'skip ci'
+      - name: 🕵️‍♀️ Check if the commit message contains 'skip ci'
         if: ${{ !contains(env.GITHUB_MESSAGE, 'skip ci') }}
         run: echo "This commit does not contain 'skip ci', proceeding with the workflow."
 
       - uses: actions/checkout@v4
-      - name: Use Node.js 22.x
+      - name: ⚒ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version-file: .nvmrc
 
-      - name: Install dependencies
-        run: npm i --legacy-peer-deps
+      - name: ✅ Install dependencies
+        run: npm ci --legacy-peer-deps
 
-      - name: Release new version
+      - name: ⚙️ Build
+        run: npm run build
+
+      - name: 🎟 Release new version
         run: npm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and deploy
+      - name: 🚀 Build and deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: npx vercel --prod --yes --token $VERCEL_TOKEN

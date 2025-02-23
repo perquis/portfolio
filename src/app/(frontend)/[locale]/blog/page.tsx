@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-import { AllPostsList, HeroSection, JobsList, SocialLinksList } from "@/components";
-import { getItemsWithMetadata } from "@/shared/packages";
+import {
+  AllPostsList,
+  HeroSection,
+  JobsList,
+  SocialLinksList,
+} from "@/components";
+import type { APIRequestParams } from "@/interfaces/i18n";
+import { getMetadata } from "@/shared/server/actions/get-metadata";
 import { Layout } from "@/shared/ui";
 
 export async function generateMetadata({
-  params: { locale },
-}: Readonly<{ params: { locale: string } }>): Promise<Metadata> {
+  params,
+}: APIRequestParams): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale });
 
   return {
@@ -16,14 +23,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({ params: { locale } }: Readonly<{ params: { locale: string } }>) {
-  unstable_setRequestLocale(locale);
-  const items = await getItemsWithMetadata("posts");
+export default async function Blog({ params }: APIRequestParams) {
+  const { locale } = await params;
+  const posts = await getMetadata({ dataSourceType: "posts", locale });
 
   return (
     <Layout>
       <HeroSection withoutCodeBlock />
-      <AllPostsList items={items} />
+      <AllPostsList items={posts} />
       <JobsList />
       <SocialLinksList />
     </Layout>

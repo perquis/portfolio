@@ -4,18 +4,30 @@ import { type ComponentProps, forwardRef } from "react";
 import { Motion, Section } from "@/shared/ui";
 
 type ErrorValidation = { error?: string };
-type TInput = ComponentProps<"input"> & ErrorValidation & { labelText?: string };
+type TInput = ComponentProps<"input"> &
+  ErrorValidation & { labelText?: string };
 
-const Input = forwardRef<HTMLInputElement, TInput>(function Input({ className, error, id, labelText, ...props }, ref) {
+const Input = forwardRef<HTMLInputElement, TInput>(function Input(
+  { className, error, id, labelText, ...props },
+  ref,
+) {
   return (
     <Motion
-      animate={error ? { rotate: [-1, 1.3, 0], translateX: [-1, 1.3, 0] } : { rotate: 0, translateX: 0 }}
+      animate={
+        error
+          ? { rotate: [-1, 1.3, 0], translateX: [-1, 1.3, 0] }
+          : { rotate: 0, translateX: 0 }
+      }
       transition={{ duration: 0.2 }}
       className="w-full"
     >
       <Section className="items-start gap-1">
         <label htmlFor={id}>
-          {labelText && <span className="ml-3 text-sm font-medium text-zinc-500">{labelText}</span>}
+          {labelText && (
+            <span className="ml-3 text-sm font-medium text-zinc-500">
+              {labelText}
+            </span>
+          )}
         </label>
 
         <input

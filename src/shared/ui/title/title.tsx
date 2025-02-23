@@ -7,7 +7,12 @@ type TTitle = {
   level?: Level;
 } & ComponentProps<"h1">;
 
-export default function Title({ level: Tag = "h2", className, children, ...props }: TTitle) {
+export default function Title({
+  level: Tag = "h2",
+  className,
+  children,
+  ...props
+}: TTitle) {
   return (
     <Tag
       className={clsx(

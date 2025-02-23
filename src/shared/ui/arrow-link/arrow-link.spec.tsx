@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import ArrowLink from "./arrow-link";
 
 jest.mock("next-intl/navigation", () => ({
-  createSharedPathnamesNavigation: () => ({
+  createNavigation: () => ({
     Link: "a",
   }),
 }));

@@ -8,7 +8,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "The **Feedback** component is a simple component that displays a feedback section with emojis.",
+        component:
+          "The **Feedback** component is a simple component that displays a feedback section with emojis.",
       },
     },
   },

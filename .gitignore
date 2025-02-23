@@ -41,11 +41,6 @@ next-env.d.ts
 
 *storybook.log
 
-# Lock files
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-bun.lockb
-bun.lock
-
 *.tgz
+
+src/app/(resources)/posts/pl/example/

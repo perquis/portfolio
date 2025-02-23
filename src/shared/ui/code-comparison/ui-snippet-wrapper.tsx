@@ -1,15 +1,14 @@
-import { type PropsWithChildren, useMemo } from "react";
+import { type PropsWithChildren } from "react";
 
-import * as stacks from "@/shared/icons/programming-languages";
-import { useCodeComparisonContext } from "@/shared/ui/code-comparison/provider-code-comparison";
+import * as icons from "@/shared/icons/programming-languages";
+
+import { useCodeComparisonContext } from "./provider-code-comparison";
 
 type SnippetWrapperProps = PropsWithChildren & { label: string };
 
 export const SnippetWrapper = ({ children, label }: SnippetWrapperProps) => {
   const { filename, icon } = useCodeComparisonContext()!;
-
-  const icons = useMemo(() => stacks, []),
-    Icon = icons[icon];
+  const Icon = icons[icon];
 
   return (
     <div className="grid grid-flow-row auto-rows-max md:block">

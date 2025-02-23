@@ -1,7 +1,4 @@
-import type { METADATA_RESPONSE } from "@/shared/packages/markdown/settings";
-
 export type Location = "projects" | "posts";
-export type TMetadata = typeof METADATA_RESPONSE.metadata;
 
 export interface IDocs {
   data: Data[];
@@ -14,10 +11,13 @@ export interface Data {
 export interface Frontmatter {
   slug: string;
   title: string;
+  year: number;
   description: string;
   light_img: string;
   dark_img: string;
   tags: string[];
-  publishedAt: string;
+  publishedAt: Date;
+  updatedAt: Date;
   isPublished: boolean;
+  open_graph_img: string;
 }

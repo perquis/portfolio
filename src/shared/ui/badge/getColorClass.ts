@@ -6,25 +6,33 @@ export const getColorClass = (color: Color) =>
   match(color)
     .with(
       "rose",
-      () => "bg-rose-100 dark:bg-rose-950 border-rose-300 dark:border-rose-700 text-rose-600 dark:text-rose-400",
+      () =>
+        "bg-rose-100 dark:bg-rose-950 border-rose-300 dark:border-rose-700 text-rose-600 dark:text-rose-400",
     )
     .with(
       "blue",
-      () => "bg-blue-100 dark:bg-blue-950 border-blue-300 dark:border-blue-700 text-blue-600 dark:text-blue-400",
+      () =>
+        "bg-blue-100 dark:bg-blue-950 border-blue-300 dark:border-blue-700 text-blue-600 dark:text-blue-400",
     )
     .with(
       "green",
-      () => "bg-green-100 dark:bg-green-950 border-green-300 dark:border-green-700 text-green-600 dark:text-green-400",
+      () =>
+        "bg-green-100 dark:bg-green-950 border-green-300 dark:border-green-700 text-green-600 dark:text-green-400",
     )
     .with(
       "yellow",
       () =>
         "bg-yellow-100 dark:bg-yellow-950 border-yellow-300 dark:border-yellow-700 text-yellow-600 dark:text-yellow-400",
     )
-    .with("red", () => "bg-red-100 dark:bg-red-950 border-red-300 dark:border-red-700 text-red-600 dark:text-red-400")
+    .with(
+      "red",
+      () =>
+        "bg-red-100 dark:bg-red-950 border-red-300 dark:border-red-700 text-red-600 dark:text-red-400",
+    )
     .with(
       "amber",
-      () => "bg-amber-100 dark:bg-amber-950 border-amber-300 dark:border-amber-700 text-amber-600 dark:text-amber-400",
+      () =>
+        "bg-amber-100 dark:bg-amber-950 border-amber-300 dark:border-amber-700 text-amber-600 dark:text-amber-400",
     )
     .with(
       "orange",
@@ -43,15 +51,18 @@ export const getColorClass = (color: Color) =>
     )
     .with(
       "pink",
-      () => "bg-pink-100 dark:bg-pink-950 border-pink-300 dark:border-pink-700 text-pink-600 dark:text-pink-400",
+      () =>
+        "bg-pink-100 dark:bg-pink-950 border-pink-300 dark:border-pink-700 text-pink-600 dark:text-pink-400",
     )
     .with(
       "cyan",
-      () => "bg-cyan-100 dark:bg-cyan-950 border-cyan-300 dark:border-cyan-700 text-cyan-600 dark:text-cyan-400",
+      () =>
+        "bg-cyan-100 dark:bg-cyan-950 border-cyan-300 dark:border-cyan-700 text-cyan-600 dark:text-cyan-400",
     )
     .with(
       "teal",
-      () => "bg-teal-100 dark:bg-teal-950 border-teal-300 dark:border-teal-700 text-teal-600 dark:text-teal-400",
+      () =>
+        "bg-teal-100 dark:bg-teal-950 border-teal-300 dark:border-teal-700 text-teal-600 dark:text-teal-400",
     )
     .with(
       "emerald",
@@ -60,7 +71,8 @@ export const getColorClass = (color: Color) =>
     )
     .with(
       "lime",
-      () => "bg-lime-100 dark:bg-lime-950 border-lime-300 dark:border-lime-700 text-lime-600 dark:text-lime-400",
+      () =>
+        "bg-lime-100 dark:bg-lime-950 border-lime-300 dark:border-lime-700 text-lime-600 dark:text-lime-400",
     )
     .with(
       "fuchsia",
@@ -74,11 +86,13 @@ export const getColorClass = (color: Color) =>
     )
     .with(
       "zinc",
-      () => "bg-zinc-100 dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400",
+      () =>
+        "bg-zinc-100 dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400",
     )
     .with(
       "stone",
-      () => "bg-stone-100 dark:bg-stone-950 border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-400",
+      () =>
+        "bg-stone-100 dark:bg-stone-950 border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-400",
     )
     .with(
       "neutral",
@@ -87,6 +101,7 @@ export const getColorClass = (color: Color) =>
     )
     .with(
       "slate",
-      () => "bg-slate-100 dark:bg-slate-950 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400",
+      () =>
+        "bg-slate-100 dark:bg-slate-950 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400",
     )
     .run();

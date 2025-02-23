@@ -1,13 +1,15 @@
 import type { PropsWithChildren } from "react";
 
-import { locales } from "@/config/i18n";
+import { locales } from "@/libs/next-intl";
+
+const [en, pl] = locales;
 
 export const metadata = {
   alternates: {
     canonical: "/",
     languages: {
-      [locales[0]]: `/${locales[0]}`,
-      [locales[1]]: `/${locales[1]}`,
+      [en]: `/${en}`,
+      [pl]: `/${pl}`,
     },
   },
   openGraph: {

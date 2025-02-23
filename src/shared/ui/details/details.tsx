@@ -60,7 +60,9 @@ const Item: FC<IItem> = ({ type, href, label, content }) => {
 
   return (
     <Section className="items-start border-b border-zinc-200 last:border-b-0 dark:border-zinc-800 sm:!flex-row">
-      <Regular className="block min-w-40 px-4 py-3.5 !text-sm font-medium">{label}</Regular>
+      <Regular className="block min-w-40 px-4 py-3.5 !text-sm font-medium">
+        {label}
+      </Regular>
       {html}
     </Section>
   );

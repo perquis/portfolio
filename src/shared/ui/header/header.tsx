@@ -24,7 +24,12 @@ interface IHeader {
 
 const isTargetBlank = (url: string) => url?.startsWith("http");
 
-export default function Header({ heading, description = null, pathname = null, link = null }: IHeader) {
+export default function Header({
+  heading,
+  description = null,
+  pathname = null,
+  link = null,
+}: IHeader) {
   const t = useTranslations();
 
   const currentPathname = usePathname(),
@@ -34,7 +39,9 @@ export default function Header({ heading, description = null, pathname = null, l
 
   return (
     <Section className="w-full gap-5">
-      <Section className={clsx("!flex-row", { "justify-between": isSpecificPage })}>
+      <Section
+        className={clsx("!flex-row", { "justify-between": isSpecificPage })}
+      >
         <Regular className="font-semibold">{t(heading)}</Regular>
         {isSpecificPage && link && (
           <ArrowLink target={target} rel="noreferrer;noopenner" href={link.url}>

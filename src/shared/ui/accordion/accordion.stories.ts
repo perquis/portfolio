@@ -33,7 +33,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    question: "What technologies and tools do you use most frequently in your projects?",
+    question:
+      "What technologies and tools do you use most frequently in your projects?",
     answer:
       "I primarily use HTML, CSS/SCSS, and TypeScript for building user interfaces. Additionally, I work with frameworks like Angular and React. On the backend, I utilize Node.js and Express.",
   },

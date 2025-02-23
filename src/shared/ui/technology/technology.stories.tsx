@@ -9,7 +9,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "The **Technology** component is a simple component that displays a technology icon.",
+        component:
+          "The **Technology** component is a simple component that displays a technology icon.",
       },
     },
   },
@@ -40,8 +41,16 @@ export const List: Story = {
   decorators: [
     () => (
       <Section className="!flex-row gap-5">
-        <Technology icon="Jsx" name="React" content="A JavaScript library for building user interfaces." />
-        <Technology icon="Vue" name="Vue" content="The Progressive JavaScript Framework." />
+        <Technology
+          icon="Jsx"
+          name="React"
+          content="A JavaScript library for building user interfaces."
+        />
+        <Technology
+          icon="Vue"
+          name="Vue"
+          content="The Progressive JavaScript Framework."
+        />
       </Section>
     ),
   ],

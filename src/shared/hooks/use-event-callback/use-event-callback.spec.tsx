@@ -19,7 +19,9 @@ describe("use-event-callback", () => {
     const callback = jest.fn();
 
     const { getByText } = render(<button>Click me</button>);
-    renderHook(() => useEventCallback({ callback, eventName: "click", active: false }));
+    renderHook(() =>
+      useEventCallback({ callback, eventName: "click", active: false }),
+    );
 
     fireEvent.click(getByText("Click me"));
 

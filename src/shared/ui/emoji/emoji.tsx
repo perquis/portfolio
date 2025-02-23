@@ -29,7 +29,8 @@ export default function Emoji({ emoji, size }: IEmoji) {
     .with("large", () => "w-10 h-10")
     .exhaustive();
 
-  const dotLottieRefCallback = (dotLottie: DotLottie) => setDotLottie(dotLottie);
+  const dotLottieRefCallback = (dotLottie: DotLottie) =>
+    setDotLottie(dotLottie);
 
   useEffect(() => {
     if (isOpen) {

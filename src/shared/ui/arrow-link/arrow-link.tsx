@@ -6,7 +6,11 @@ import * as icons from "@/shared/icons/generals";
 
 type TArrowLink = ComponentProps<typeof Link>;
 
-export default function ArrowLink({ children, className, ...props }: TArrowLink) {
+export default function ArrowLink({
+  children,
+  className,
+  ...props
+}: TArrowLink) {
   return (
     <Link
       className={clsx(

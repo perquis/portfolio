@@ -1,9 +1,16 @@
 "use client";
 
 import { type MotionValue, motion } from "framer-motion";
-import { type ComponentProps, type ElementType, type ReactNode, createElement } from "react";
+import {
+  type ComponentProps,
+  type ElementType,
+  type ReactNode,
+  createElement,
+} from "react";
 
-type MotionElement<T extends keyof typeof motion> = ComponentProps<(typeof motion)[T]> & {
+type MotionElement<T extends keyof typeof motion> = ComponentProps<
+  (typeof motion)[T]
+> & {
   asChild?: T;
   children?: ReactNode | MotionValue<number> | MotionValue<string>;
   className?: string;

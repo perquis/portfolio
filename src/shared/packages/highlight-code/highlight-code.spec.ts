@@ -2,9 +2,6 @@ import { describe, expect, it } from "@jest/globals";
 
 import { highlightCode } from "@/shared/packages";
 
-// next dependencies
-jest.mock("next-mdx-remote/serialize", () => ({ renderToString: jest.fn() }));
-
 // color themes
 jest.mock("shiki", () => null);
 jest.mock("rehype-pretty-code", () => null);

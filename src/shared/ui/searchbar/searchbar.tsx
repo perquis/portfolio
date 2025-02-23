@@ -23,7 +23,8 @@ export default function SearchBar({ className, ...props }: TSearchBar) {
   }, 500);
 
   const { platform } = usePlatform();
-  const specialKey = platform === "Mac OS" ? "⌘" : platform === "Windows" ? "Ctrl" : null;
+  const specialKey =
+    platform === "Mac OS" ? "⌘" : platform === "Windows" ? "Ctrl" : null;
 
   return (
     <div

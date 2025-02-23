@@ -8,7 +8,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "The **Tab** component is a simple component that displays a tab with a link to a specific page.",
+        component:
+          "The **Tab** component is a simple component that displays a tab with a link to a specific page.",
       },
     },
   },

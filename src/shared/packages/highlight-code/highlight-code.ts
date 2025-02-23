@@ -22,7 +22,8 @@ export async function highlightCode(code: string) {
           .use(remarkParse)
           .use(remarkRehype)
           .use(rehypePrettyCode, {
-            filterMetaString: (string) => string.replace(/filename="[^"]*"/, ""),
+            filterMetaString: (string) =>
+              string.replace(/filename="[^"]*"/, ""),
             theme: theme === "light" ? themes.light : themes.dark,
             keepBackground: false,
             tokensMap: {

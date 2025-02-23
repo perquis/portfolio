@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+import { BASE_URL } from "@/common/constants/env";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -8,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/"],
       },
     ],
-    sitemap: `${process.env.VERCEL_URL}/sitemap.xml`,
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

@@ -59,7 +59,10 @@ const PageLink = (props: IPagination["next"]) => {
   return (
     <Section className="gap-1">
       <Regular className="text-xs">{props?.children}</Regular>
-      <NextViewTransitionLink className={clsx("!text-sm font-medium", props?.className)} {...props!}>
+      <NextViewTransitionLink
+        className={clsx("!text-sm font-medium", props?.className)}
+        {...props!}
+      >
         {props!.text}
       </NextViewTransitionLink>
     </Section>

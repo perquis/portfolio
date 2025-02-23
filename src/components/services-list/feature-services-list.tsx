@@ -9,7 +9,10 @@ export const ServicesList = () => {
   return (
     <Motion layout>
       <Section className="gap-5">
-        <Header heading="HOME_SERVICES_TITLE" description="HOME_SERVICES_DESCRIPTION" />
+        <Header
+          heading="HOME_SERVICES_TITLE"
+          description="HOME_SERVICES_DESCRIPTION"
+        />
         <List items={items} />
       </Section>
     </Motion>

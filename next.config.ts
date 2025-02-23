@@ -1,38 +1,52 @@
 import "@next/env";
+import createMDX from "@next/mdx";
+import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const withNextIntl = createNextIntlPlugin("./src/config/i18n.ts");
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    rehypePlugins: [[rehypeAutolinkHeadings, { behavior: "wrap" }]],
+    remarkPlugins: [],
+  },
+});
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   compiler: {
     removeConsole: {
       exclude: ["error", "warn", "log"],
     },
   },
   transpilePackages: ["next-mdx-remote", "shiki", "geist"],
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, path: false };
+    return config;
+  },
   async redirects() {
     return [
       {
         source: "/in",
-        destination: process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL,
+        destination: String(process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL),
         permanent: true,
       },
       {
         source: "/gh",
-        destination: process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL,
+        destination: String(process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL),
         permanent: true,
       },
       {
         source: "/x",
-        destination: process.env.NEXT_PUBLIC_TWITTER_PROFILE_URL,
+        destination: String(process.env.NEXT_PUBLIC_TWITTER_PROFILE_URL),
         permanent: true,
       },
       {
         source: "/onboarding",
-        destination: process.env.GOOGLE_FORM_URL,
+        destination: String(process.env.GOOGLE_FORM_URL),
         permanent: true,
       },
     ];
@@ -46,7 +60,7 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: `
               default-src 'self';
-              script-src 'self' 'unsafe-eval' 'unsafe-inline' app.cal.com;
+              script-src 'self' 'unsafe-eval' 'unsafe-inline' app.cal.com unpkg.com;
               img-src *;
               frame-src 'self' www.youtube.com cal.com app.cal.com *.codesandbox.io;
               style-src 'self' 'unsafe-inline';
@@ -65,4 +79,4 @@ const nextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+export default withMDX(withNextIntl(nextConfig));

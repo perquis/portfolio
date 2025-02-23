@@ -6,7 +6,9 @@ import useInput from "./use-input";
 describe("use-input", () => {
   it("should update the input value", () => {
     const { result } = renderHook(() => useInput());
-    const { getByTestId } = render(<input data-testid="input" onChange={result.current[1]} />);
+    const { getByTestId } = render(
+      <input data-testid="input" onChange={result.current[1]} />,
+    );
 
     fireEvent.change(getByTestId("input"), { target: { value: "Hello" } });
 

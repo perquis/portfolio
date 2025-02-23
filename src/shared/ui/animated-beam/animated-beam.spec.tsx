@@ -6,9 +6,12 @@ import AnimatedBeam from "./animated-beam";
 
 describe("AnimatedBeam", () => {
   it("renders correctly", () => {
-    const containerRef = renderHook(() => useRef<HTMLDivElement | null>(null)).result.current,
-      fromRef = renderHook(() => useRef<HTMLDivElement | null>(null)).result.current,
-      toRef = renderHook(() => useRef<HTMLDivElement | null>(null)).result.current;
+    const containerRef = renderHook(() => useRef<HTMLDivElement | null>(null))
+        .result.current,
+      fromRef = renderHook(() => useRef<HTMLDivElement | null>(null)).result
+        .current,
+      toRef = renderHook(() => useRef<HTMLDivElement | null>(null)).result
+        .current;
 
     const ResizeObserverMock = jest.fn(() => ({
       observe: jest.fn(),
@@ -18,7 +21,13 @@ describe("AnimatedBeam", () => {
 
     window.ResizeObserver = ResizeObserverMock;
 
-    const { asFragment } = render(<AnimatedBeam containerRef={containerRef} fromRef={fromRef} toRef={toRef} />);
+    const { asFragment } = render(
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={fromRef}
+        toRef={toRef}
+      />,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

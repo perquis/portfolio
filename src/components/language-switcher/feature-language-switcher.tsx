@@ -3,8 +3,7 @@
 import { Select } from "@headlessui/react";
 import { useLocale } from "next-intl";
 
-import { locales } from "@/config/i18n";
-import { usePathname, useRouter } from "@/libs/next-intl";
+import { locales, usePathname, useRouter } from "@/libs/next-intl";
 import { getLanguageNames } from "@/shared/utils/get-language-names";
 
 export const LanguageSwitcher = () => {

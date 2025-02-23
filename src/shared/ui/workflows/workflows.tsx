@@ -10,7 +10,12 @@ export default function Workflows({ items }: IWorkflow) {
   return (
     <Section className="gap-2">
       {items.map((item, index) => (
-        <Item key={index} {...item} index={index} last={items.length - 1 === index} />
+        <Item
+          key={index}
+          {...item}
+          index={index}
+          last={items.length - 1 === index}
+        />
       ))}
     </Section>
   );
@@ -47,4 +52,6 @@ const Item: FC<IItem> = ({ index = 0, title, description, last }) => {
   );
 };
 
-const VerticalLine = () => <div className="h-full w-[1px] bg-zinc-100 dark:bg-zinc-900" />;
+const VerticalLine = () => (
+  <div className="h-full w-[1px] bg-zinc-100 dark:bg-zinc-900" />
+);

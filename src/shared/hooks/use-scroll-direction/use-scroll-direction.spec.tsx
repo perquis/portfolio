@@ -17,7 +17,7 @@ jest.mock("next-intl/server", () => ({
 
 jest.mock("next-intl/navigation", () => ({
   __esModule: true,
-  createSharedPathnamesNavigation: jest.fn(() => ({
+  createNavigation: jest.fn(() => ({
     Link: () => <div></div>,
     redirect: jest.fn(),
     usePathname: jest.fn(() => "/"),
@@ -32,8 +32,14 @@ jest.mock("next-intl/navigation", () => ({
 describe("use-scroll-direction", () => {
   it("should return up when window scroll x and y are set to 0 points", () => {
     const scrollYMock = jest.fn(() => 0);
-    Object.defineProperty(window, "scrollTo", { value: jest.fn(), writable: true });
-    Object.defineProperty(window, "scrollY", { value: scrollYMock, writable: true });
+    Object.defineProperty(window, "scrollTo", {
+      value: jest.fn(),
+      writable: true,
+    });
+    Object.defineProperty(window, "scrollY", {
+      value: scrollYMock,
+      writable: true,
+    });
 
     const { result } = renderHook(() => useScrollDirection("y"));
 

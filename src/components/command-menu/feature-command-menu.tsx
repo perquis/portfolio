@@ -5,10 +5,9 @@ import { useTheme } from "next-themes";
 
 import { useHotkeys } from "@/components/command-menu/utils-use-hotkeys";
 import { useSearchByQuery } from "@/components/command-menu/utils-use-search-by-query";
-import { locales } from "@/config/i18n";
 import { links } from "@/data";
 import type { Frontmatter } from "@/interfaces/markdown";
-import { useRouter } from "@/libs/next-intl";
+import { locales, useRouter } from "@/libs/next-intl";
 import { useChangeLocale } from "@/shared/hooks";
 import {
   CommandDialog,
@@ -25,7 +24,10 @@ import { getLanguageNames } from "@/shared/utils/get-language-names";
 import { settings } from "./data-settings";
 
 export type Article = Pick<Frontmatter, "title" | "slug" | "tags">;
-export type ICommandMenu = Record<"data", [posts: Article[], projects: Article[]]>;
+export type ICommandMenu = Record<
+  "data",
+  [posts: Article[], projects: Article[]]
+>;
 
 export function CommandMenu({ data }: ICommandMenu) {
   const locale = useLocale();
@@ -36,11 +38,15 @@ export function CommandMenu({ data }: ICommandMenu) {
 
   const { isOpen, toggle } = useHotkeys();
   const { changeLanguage } = useChangeLocale();
-  const [[filteredPosts, filteredProjects], onValueChange] = useSearchByQuery(data);
+  const [[filteredPosts, filteredProjects], onValueChange] =
+    useSearchByQuery(data);
 
   return (
     <CommandDialog open={isOpen} onOpenChange={toggle}>
-      <CommandInput placeholder={t("COMMAND_SEARCH_PLACEHOLDER")} onValueChange={onValueChange} />
+      <CommandInput
+        placeholder={t("COMMAND_SEARCH_PLACEHOLDER")}
+        onValueChange={onValueChange}
+      />
       <CommandList className="py-1">
         <CommandEmpty>{t("NO_RESULTS")}</CommandEmpty>
         <CommandGroup heading={t("SUGGESTIONS")}>
@@ -57,7 +63,11 @@ export function CommandMenu({ data }: ICommandMenu) {
         <CommandSeparator />
         <CommandGroup heading={t("THEMES")}>
           {settings.map(({ Icon, label, selectValue }) => (
-            <CommandItem onSelect={() => setTheme(selectValue)} key={label} asChild>
+            <CommandItem
+              onSelect={() => setTheme(selectValue)}
+              key={label}
+              asChild
+            >
               <button className="flex w-full items-center gap-4">
                 <Icon />
                 {/* @ts-expect-error */}
@@ -69,7 +79,11 @@ export function CommandMenu({ data }: ICommandMenu) {
         <CommandSeparator />
         <CommandGroup heading={t("LANGUAGES")}>
           {getLanguageNames(locales, locale).map(({ code, fullName }) => (
-            <CommandItem key={fullName} asChild onSelect={() => changeLanguage(code)}>
+            <CommandItem
+              key={fullName}
+              asChild
+              onSelect={() => changeLanguage(code)}
+            >
               <span className="capitalize">
                 {fullName} ({code.toUpperCase()})
               </span>
@@ -88,7 +102,10 @@ export function CommandMenu({ data }: ICommandMenu) {
         {!isEmptyArray(filteredProjects) && (
           <CommandGroup heading={t("PROJECTS")}>
             {filteredProjects.map(({ title, slug }) => (
-              <CommandItem key={title} onSelect={() => push(`/portfolio/${slug}`)}>
+              <CommandItem
+                key={title}
+                onSelect={() => push(`/portfolio/${slug}`)}
+              >
                 {title}
               </CommandItem>
             ))}

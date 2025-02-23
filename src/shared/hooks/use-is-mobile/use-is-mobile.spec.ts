@@ -18,7 +18,9 @@ describe("use-is-mobile", () => {
   });
 
   it("should return false when the platform is not on iOS or Android", () => {
-    (usePlatform as jest.Mock).mockImplementation(() => ({ platform: "Windows" }));
+    (usePlatform as jest.Mock).mockImplementation(() => ({
+      platform: "Windows",
+    }));
     const { result } = renderHook(() => useIsMobile());
 
     expect(result.current.isMobile).toBe(false);

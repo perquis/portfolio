@@ -5,7 +5,9 @@ import AnimatedShinyText from "./animated-shiny-text";
 
 describe("AnimatedShinyText", () => {
   it("renders correctly", () => {
-    const { asFragment } = render(<AnimatedShinyText>children</AnimatedShinyText>);
+    const { asFragment } = render(
+      <AnimatedShinyText>children</AnimatedShinyText>,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

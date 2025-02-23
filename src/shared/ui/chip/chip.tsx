@@ -7,7 +7,12 @@ interface IChip {
 
 type TChip = ComponentProps<"button">;
 
-export default function Chip({ children, className, isActive, ...props }: TChip & IChip) {
+export default function Chip({
+  children,
+  className,
+  isActive,
+  ...props
+}: TChip & IChip) {
   return (
     <button
       className={clsx(

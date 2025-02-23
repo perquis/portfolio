@@ -11,7 +11,13 @@ type TAvatar = Omit<RatioProps, "resolution"> & {
   innerShadow?: boolean;
 };
 
-export default function Avatar({ rounded = "full", size = "medium", className, innerShadow, ...props }: TAvatar) {
+export default function Avatar({
+  rounded = "full",
+  size = "medium",
+  className,
+  innerShadow,
+  ...props
+}: TAvatar) {
   const classes = match({ rounded, size })
     .with({ rounded: "full", size: "large" }, () => "rounded-full h-16 w-16")
     .with({ rounded: "full", size: "medium" }, () => "rounded-full h-12 w-12")
@@ -26,7 +32,12 @@ export default function Avatar({ rounded = "full", size = "medium", className, i
   return (
     <Ratio
       resolution="1:1"
-      className={clsx("overflow-hidden", innerShadow && "shadow-inner", classes, className)}
+      className={clsx(
+        "overflow-hidden",
+        innerShadow && "shadow-inner",
+        classes,
+        className,
+      )}
       {...props}
     />
   );

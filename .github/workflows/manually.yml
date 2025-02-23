@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: 22.x
 
-      - name: Install dependencies
+      - name: ✅ Install dependencies
         run: npm i --legacy-peer-deps
 
-      - name: Build and deploy
+      - name: 🚀 Build and deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: npx vercel --prod --yes --token $VERCEL_TOKEN

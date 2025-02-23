@@ -3,7 +3,14 @@
 import { AnimatePresence } from "framer-motion";
 
 import { emojis } from "@/data";
-import { Emoji, IconButton, Motion, Paragraph, Section, Title } from "@/shared/ui";
+import {
+  Emoji,
+  IconButton,
+  Motion,
+  Paragraph,
+  Section,
+  Title,
+} from "@/shared/ui";
 
 interface IFeedback {
   title: string;
@@ -12,7 +19,12 @@ interface IFeedback {
   close: () => void;
 }
 
-export default function Feedback({ isOpen, close, title, description }: IFeedback) {
+export default function Feedback({
+  isOpen,
+  close,
+  title,
+  description,
+}: IFeedback) {
   return (
     <div className="pointer-events-none fixed left-0 top-0 flex h-screen w-full items-end justify-center overflow-hidden pb-16">
       <AnimatePresence>

@@ -19,7 +19,9 @@ export default function Footer() {
             locale === "pl" && "max-[492px]:!items-start",
           )}
         >
-          <Regular className="!text-sm">{t("FOOTER_ALL_RIGHTS_RESERVED")}</Regular>
+          <Regular className="!text-sm">
+            {t("FOOTER_ALL_RIGHTS_RESERVED")}
+          </Regular>
           <LanguageSwitcher />
           <ToggleTheme />
         </Section>

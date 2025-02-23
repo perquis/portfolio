@@ -1,7 +1,12 @@
 import type { ComponentProps, FC } from "react";
 
 const Figma: FC<ComponentProps<"svg">> = (props) => (
-  <svg {...props} fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    {...props}
+    fill="none"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       d="M8.818 21.61c1.757 0 3.183-1.435 3.183-3.203v-3.203H8.818c-1.755 0-3.181 1.434-3.181 3.203s1.426 3.204 3.181 3.204z"
       fill="#00e676"
@@ -14,7 +19,10 @@ const Figma: FC<ComponentProps<"svg">> = (props) => (
       d="M5.637 5.594c0-1.768 1.426-3.204 3.181-3.204h3.183v6.407H8.818c-1.755 0-3.181-1.435-3.181-3.203Z"
       fill="#f4511e"
     />
-    <path d="M12 2.39h3.182c1.756 0 3.182 1.436 3.182 3.204s-1.426 3.203-3.182 3.203H12z" fill="#ff8a65" />
+    <path
+      d="M12 2.39h3.182c1.756 0 3.182 1.436 3.182 3.204s-1.426 3.203-3.182 3.203H12z"
+      fill="#ff8a65"
+    />
     <path
       d="M18.364 12c0 1.769-1.426 3.204-3.182 3.204S12 13.769 12 12s1.426-3.203 3.182-3.203 3.182 1.435 3.182 3.203z"
       fill="#29b6f6"

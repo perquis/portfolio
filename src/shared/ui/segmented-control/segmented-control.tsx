@@ -37,7 +37,9 @@ export default function SegmentedControl({ controls }: TSegmentedControl) {
               disabled={isAcive}
             >
               <Icon width={20} height={20} className="z-10" />{" "}
-              <span className="z-10 select-none text-sm drop-shadow">{name}</span>
+              <span className="z-10 select-none text-sm drop-shadow">
+                {name}
+              </span>
               {isAcive && (
                 <motion.div
                   className="absolute left-0 right-0 top-0 h-full w-full rounded-md border border-zinc-300 bg-white shadow-sm dark:border-zinc-800/50 dark:bg-zinc-900"
@@ -46,7 +48,9 @@ export default function SegmentedControl({ controls }: TSegmentedControl) {
                 />
               )}
             </button>
-            {controls.length - 1 !== index && <div className="h-5 w-[1px] bg-zinc-300 dark:bg-zinc-800" />}
+            {controls.length - 1 !== index && (
+              <div className="h-5 w-[1px] bg-zinc-300 dark:bg-zinc-800" />
+            )}
           </Fragment>
         );
       })}

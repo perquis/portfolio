@@ -1,7 +1,12 @@
 import type { ComponentProps, FC } from "react";
 
 const Azure: FC<ComponentProps<"svg">> = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    {...props}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       d="M8.894 3.205h5.525L8.684 20.197a.881.881 0 0 1-.835.6h-4.3a.879.879 0 0 1-.833-1.161L8.06 3.804a.881.881 0 0 1 .835-.599Z"
       fill="#01579B"

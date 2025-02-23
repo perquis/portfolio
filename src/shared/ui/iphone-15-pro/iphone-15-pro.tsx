@@ -6,7 +6,12 @@ export interface Iphone15ProProps extends SVGProps<SVGSVGElement> {
   src?: string;
 }
 
-export default function Iphone15Pro({ width = 433, height = 882, src, ...props }: Iphone15ProProps) {
+export default function Iphone15Pro({
+  width = 433,
+  height = 882,
+  src,
+  ...props
+}: Iphone15ProProps) {
   return (
     <svg
       width={width}
@@ -75,7 +80,14 @@ export default function Iphone15Pro({ width = 433, height = 882, src, ...props }
       />
       <defs>
         <clipPath id="roundedCorners">
-          <rect x="21.25" y="19.25" width="389.5" height="843.5" rx="55.75" ry="55.75" />
+          <rect
+            x="21.25"
+            y="19.25"
+            width="389.5"
+            height="843.5"
+            rx="55.75"
+            ry="55.75"
+          />
         </clipPath>
       </defs>
     </svg>

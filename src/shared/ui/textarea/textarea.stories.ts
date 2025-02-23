@@ -8,7 +8,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "The **Textarea** component is used to get multi-line text input from the user.",
+        component:
+          "The **Textarea** component is used to get multi-line text input from the user.",
       },
     },
   },

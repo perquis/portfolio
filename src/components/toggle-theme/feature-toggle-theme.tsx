@@ -13,19 +13,32 @@ export const ToggleTheme = () => {
   const mounted = useMounted();
 
   const toggleTheme = () =>
-    setTheme(theme === "system" ? (systemTheme === "dark" ? "light" : "dark") : theme === "dark" ? "light" : "dark");
+    setTheme(
+      theme === "system"
+        ? systemTheme === "dark"
+          ? "light"
+          : "dark"
+        : theme === "dark"
+          ? "light"
+          : "dark",
+    );
 
-  const isDarkMode = (theme === "system" && systemTheme === "dark") || theme === "dark",
+  const isDarkMode =
+      (theme === "system" && systemTheme === "dark") || theme === "dark",
     isLightMode = !isDarkMode;
 
-  const isChecked = theme === "system" ? systemTheme === "dark" : theme === "dark";
+  const isChecked =
+    theme === "system" ? systemTheme === "dark" : theme === "dark";
 
   if (!mounted) return null;
 
   return (
     <Section className="!flex-row items-center gap-1">
       <Sun
-        className={clsx("transition-colors duration-200 ease-in-out", isDarkMode && "opacity-50")}
+        className={clsx(
+          "transition-colors duration-200 ease-in-out",
+          isDarkMode && "opacity-50",
+        )}
         width={16}
         height={16}
       />
@@ -47,7 +60,10 @@ export const ToggleTheme = () => {
         />
       </Switch>
       <Moon
-        className={clsx("transition-colors duration-200 ease-in-out", isLightMode && "opacity-50")}
+        className={clsx(
+          "transition-colors duration-200 ease-in-out",
+          isLightMode && "opacity-50",
+        )}
         width={16}
         height={16}
       />

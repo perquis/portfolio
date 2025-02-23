@@ -1,4 +1,12 @@
-import { Font, Heading, Html, Link, Section, Tailwind, Text } from "@react-email/components";
+import {
+  Font,
+  Heading,
+  Html,
+  Link,
+  Section,
+  Tailwind,
+  Text,
+} from "@react-email/components";
 
 interface IProps {
   name: string;
@@ -10,7 +18,9 @@ interface IContactFormMessageMailProps {
   email: IProps;
 }
 
-export default function ContactFormMessageMail({ email: { name, email, message } }: IContactFormMessageMailProps) {
+export default function ContactFormMessageMail({
+  email: { name, email, message },
+}: IContactFormMessageMailProps) {
   return (
     <Tailwind>
       <Html className="bg-zinc-100">
@@ -29,7 +39,8 @@ export default function ContactFormMessageMail({ email: { name, email, message }
           <Heading className="leading-5 text-black">Hello Damian! 🖐️</Heading>
 
           <Text className="text-zinc-700">
-            I sent you a mail from your website. Please check it out as soon as possible. You can find my message below:
+            I sent you a mail from your website. Please check it out as soon as
+            possible. You can find my message below:
           </Text>
 
           <b className="text-zinc-700">
@@ -43,7 +54,10 @@ export default function ContactFormMessageMail({ email: { name, email, message }
           </Text>
 
           <Text>
-            <Link className="italic text-indigo-600 underline" href={`mailto:${email}`}>
+            <Link
+              className="italic text-indigo-600 underline"
+              href={`mailto:${email}`}
+            >
               {email}
             </Link>
           </Text>

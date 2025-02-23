@@ -27,7 +27,12 @@ export default function DynamicImage({
         alt={alt}
         resolution={resolution}
       />
-      <Ratio className={clsx(getVisibilityClass("dark"), className)} src={darkUrl} alt={alt} resolution={resolution} />
+      <Ratio
+        className={clsx(getVisibilityClass("dark"), className)}
+        src={darkUrl}
+        alt={alt}
+        resolution={resolution}
+      />
     </div>
   );
 }

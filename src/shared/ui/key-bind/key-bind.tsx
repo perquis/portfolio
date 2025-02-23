@@ -1,7 +1,10 @@
 import clsx from "clsx";
 import type { ComponentProps } from "react";
 
-export default function KeyBind({ children, className }: ComponentProps<"kbd">) {
+export default function KeyBind({
+  children,
+  className,
+}: ComponentProps<"kbd">) {
   return (
     <kbd
       className={clsx(

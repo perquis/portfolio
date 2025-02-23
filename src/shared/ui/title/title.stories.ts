@@ -27,7 +27,8 @@ const meta = {
     level: {
       options: ["h1", "h2", "h3", "h4", "h5", "h6"],
       control: { type: "select" },
-      description: "You can choose the level of the header. Currently, It component supports h1 to h6.",
+      description:
+        "You can choose the level of the header. Currently, It component supports h1 to h6.",
     },
   },
 } satisfies Meta<typeof Title>;

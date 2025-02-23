@@ -17,7 +17,9 @@ jest.mock("../../ui", () => ({
 
 describe("Accordion", () => {
   it("renders correctly", () => {
-    const { asFragment } = render(<Accordion question="Question" answer="Answer" />);
+    const { asFragment } = render(
+      <Accordion question="Question" answer="Answer" />,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

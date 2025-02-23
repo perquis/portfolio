@@ -14,7 +14,13 @@ type TTooltip = {
   alignment?: Extract<Alignment, "bottom" | "left" | "right" | "top">;
 } & ComponentProps<"div">;
 
-export default function Tooltip({ children, label, disabled, className, alignment = "top" }: TTooltip) {
+export default function Tooltip({
+  children,
+  label,
+  disabled,
+  className,
+  alignment = "top",
+}: TTooltip) {
   const [isOpen, [open, close]] = useOpen();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -41,8 +47,18 @@ export default function Tooltip({ children, label, disabled, className, alignmen
     .run();
 
   return (
-    <div className={clsx("pointer-events-none relative flex w-fit justify-center", className)}>
-      <div className="pointer-events-auto" onMouseEnter={open} onMouseLeave={close} ref={containerRef}>
+    <div
+      className={clsx(
+        "pointer-events-none relative flex w-fit justify-center",
+        className,
+      )}
+    >
+      <div
+        className="pointer-events-auto"
+        onMouseEnter={open}
+        onMouseLeave={close}
+        ref={containerRef}
+      >
         {children}
       </div>
       {isOpen && !disabled && (

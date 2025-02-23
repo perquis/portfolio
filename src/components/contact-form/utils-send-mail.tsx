@@ -9,7 +9,7 @@ import { capitalized } from "@/shared/utils";
 import type { Schema } from "./ui-client-contact-form";
 
 export const sendMail = async (email: Schema) => {
-  const { SMTP_GMAIL_EMAIL: to } = process.env;
+  const to = process.env.SMTP_GMAIL_EMAIL! as string;
 
   const html = await render(<ContactFormMessageMail email={email} />),
     subject = `${capitalized(email.name)} sent mail for you 📧!`;
@@ -18,6 +18,8 @@ export const sendMail = async (email: Schema) => {
     transporter.sendMail({ to, subject, html });
   } catch (error: unknown) {
     console.error(error);
-    throw new Error(`Something went wrong with sending mail on the server side...`);
+    throw new Error(
+      `Something went wrong with sending mail on the server side...`,
+    );
   }
 };

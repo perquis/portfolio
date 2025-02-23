@@ -23,9 +23,18 @@ export const Default: Story = {
   args: {
     items: [
       { label: "Client", content: "Kancelaria prawna" },
-      { label: "Project", content: "The web application that gathers the leads from landing page." },
+      {
+        label: "Project",
+        content:
+          "The web application that gathers the leads from landing page.",
+      },
       { label: "Services", content: `Web development,\nSEO,\nMarketing` },
-      { label: "Demo", content: "Landing page", type: "link", href: "https://www.youtube.com/" },
+      {
+        label: "Demo",
+        content: "Landing page",
+        type: "link",
+        href: "https://www.youtube.com/",
+      },
       { label: "Status", type: "badge", content: "Done" },
       { label: "Year", content: "2021" },
     ],

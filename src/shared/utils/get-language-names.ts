@@ -3,7 +3,10 @@ interface Language {
   fullName: string;
 }
 
-export function getLanguageNames(languageCodes: string[], displayLanguage: string = "en"): Language[] {
+export function getLanguageNames(
+  languageCodes: string[],
+  displayLanguage: string = "en",
+): Language[] {
   const languageNames = new Intl.DisplayNames([displayLanguage], {
     type: "language",
   });

@@ -10,7 +10,9 @@ interface IHeroSection {
   withoutCodeBlock?: boolean;
 }
 
-export const HeroSection: FC<IHeroSection & ComponentProps<"div">> = ({ withoutCodeBlock }) => {
+export const HeroSection: FC<IHeroSection & ComponentProps<"div">> = ({
+  withoutCodeBlock,
+}) => {
   return (
     <Section className="items-start gap-5">
       <AboutMe />

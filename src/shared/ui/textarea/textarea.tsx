@@ -4,7 +4,8 @@ import { type ComponentProps, forwardRef } from "react";
 import { Motion, Section } from "@/shared/ui";
 
 type ErrorValidation = { error?: string };
-type TTextarea = ComponentProps<"textarea"> & ErrorValidation & { labelText?: string };
+type TTextarea = ComponentProps<"textarea"> &
+  ErrorValidation & { labelText?: string };
 
 const Textarea = forwardRef<HTMLTextAreaElement, TTextarea>(function Textarea(
   { className, error, id, labelText, ...props },
@@ -12,13 +13,21 @@ const Textarea = forwardRef<HTMLTextAreaElement, TTextarea>(function Textarea(
 ) {
   return (
     <Motion
-      animate={error ? { rotate: [-1, 1.3, 0], translateX: [-1, 1.3, 0] } : { rotate: 0, translateX: 0 }}
+      animate={
+        error
+          ? { rotate: [-1, 1.3, 0], translateX: [-1, 1.3, 0] }
+          : { rotate: 0, translateX: 0 }
+      }
       transition={{ duration: 0.2 }}
       className="w-full"
     >
       <Section className="items-start gap-1">
         <label htmlFor={id}>
-          {labelText && <span className="ml-3 text-sm font-medium text-zinc-500">{labelText}</span>}
+          {labelText && (
+            <span className="ml-3 text-sm font-medium text-zinc-500">
+              {labelText}
+            </span>
+          )}
         </label>
 
         <textarea

@@ -14,12 +14,25 @@ type TImage = {
   alt: string;
 } & ComponentProps<"div">;
 
-export default function Ratio({ src, alt, className = "w-full", resolution, ...props }: TImage) {
+export default function Ratio({
+  src,
+  alt,
+  className = "w-full",
+  resolution,
+  ...props
+}: TImage) {
   const style = getAspectRatio(resolution);
 
   return (
     <div className={clsx("relative", className)} style={style} {...props}>
-      <Image layout="fill" objectFit="cover" unoptimized priority src={src} alt={alt} />
+      <Image
+        layout="fill"
+        objectFit="cover"
+        unoptimized
+        priority
+        src={src}
+        alt={alt}
+      />
     </div>
   );
 }

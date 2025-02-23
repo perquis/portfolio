@@ -6,10 +6,16 @@ import { Divider, Footer, Section } from "@/shared/ui";
 
 export default function Layout({ children }: PropsWithChildren) {
   const extractedChildren = Children.toArray(children).filter(
-    (Child) => isValidElement(Child) && typeof Child.type === "function" && (Child as JSX.Element).type(Child.props),
+    (Child) =>
+      isValidElement(Child) &&
+      typeof Child.type === "function" &&
+      (Child as JSX.Element).type(Child.props),
   );
 
-  const pageComponents = [...extractedChildren, <Footer key={crypto.randomUUID()} />];
+  const pageComponents = [
+    ...extractedChildren,
+    <Footer key={crypto.randomUUID()} />,
+  ];
 
   return (
     <LayoutGroup id={crypto.randomUUID()}>

@@ -2,7 +2,13 @@
 import { AppleNavbarLayout } from "@/shared/ui";
 import type { SafariProps } from "@/shared/ui/safari/safari";
 
-export default function VideoPlayer({ src, url = "youtube.com", width = 1203, height = 52, ...props }: SafariProps) {
+export default function VideoPlayer({
+  src,
+  url = "youtube.com",
+  width = 1203,
+  height = 52,
+  ...props
+}: SafariProps) {
   return (
     <AppleNavbarLayout url={url} {...props}>
       <iframe

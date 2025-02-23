@@ -43,7 +43,11 @@ export const List: FC<TList> = ({ items }) => {
                     {label}
                   </Chip>
                   <Link href="#description" className="lg:hidden">
-                    <Chip onClick={() => setSelected({ label, ...rest })} isActive={isActive} disabled={isActive}>
+                    <Chip
+                      onClick={() => setSelected({ label, ...rest })}
+                      isActive={isActive}
+                      disabled={isActive}
+                    >
                       {label}
                     </Chip>
                   </Link>

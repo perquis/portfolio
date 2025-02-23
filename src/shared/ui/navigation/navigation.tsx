@@ -7,7 +7,14 @@ import { links } from "@/data";
 import type { IsLock } from "@/interfaces/variants";
 import { useScrollDirection } from "@/shared/hooks";
 import type { Breadcrumbs } from "@/shared/ui";
-import { Container, HamburgerMenu, Logo, Motion, Section, Tab } from "@/shared/ui";
+import {
+  Container,
+  HamburgerMenu,
+  Logo,
+  Motion,
+  Section,
+  Tab,
+} from "@/shared/ui";
 
 export default function Navigation() {
   const direction = useScrollDirection("y");

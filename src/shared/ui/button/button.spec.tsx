@@ -1,7 +1,11 @@
 import { describe, expect, it } from "@jest/globals";
 import { render } from "@testing-library/react";
 
-import Button, { type ButtonMode, type ButtonVariant, type ExcludedTinySize } from "./button";
+import Button, {
+  type ButtonMode,
+  type ButtonVariant,
+  type ExcludedTinySize,
+} from "./button";
 
 interface ButtonTestInput {
   size: ExcludedTinySize;

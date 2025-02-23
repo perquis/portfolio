@@ -3,9 +3,18 @@ import type { FC } from "react";
 import { match } from "ts-pattern";
 
 import * as icons from "@/shared/icons/generals";
-import type { ButtonPropsWithSize, IconButtonProps } from "@/shared/ui/icon-button/icon-button.types";
+import type {
+  ButtonPropsWithSize,
+  IconButtonProps,
+} from "@/shared/ui/icon-button/icon-button.types";
 
-export default function IconButton({ size, icon, className, children, ...props }: IconButtonProps) {
+export default function IconButton({
+  size,
+  icon,
+  className,
+  children,
+  ...props
+}: IconButtonProps) {
   const squareSize = match(size)
     .with("small", () => 16)
     .with("medium", () => 20)
@@ -36,7 +45,13 @@ export default function IconButton({ size, icon, className, children, ...props }
   );
 }
 
-const Button: FC<ButtonPropsWithSize> = ({ className, size, children, rounded, ...props }) => {
+const Button: FC<ButtonPropsWithSize> = ({
+  className,
+  size,
+  children,
+  rounded,
+  ...props
+}) => {
   const classes = match(size)
     .with("small", () => "p-1 rounded-md")
     .with("medium", () => "p-[6px] rounded-lg")

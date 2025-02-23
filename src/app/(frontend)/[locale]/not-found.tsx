@@ -17,7 +17,12 @@ export default function NotFound() {
           <Paragraph>{t("NOT_FOUND_DESCRIPTION")}</Paragraph>
         </Section>
 
-        <Button mode="simple" size="medium" variants="black" onClick={() => push("/")}>
+        <Button
+          mode="simple"
+          size="medium"
+          variants="black"
+          onClick={() => push("/")}
+        >
           {t("NOT_FOUND_BUTTON")}
         </Button>
       </Section>

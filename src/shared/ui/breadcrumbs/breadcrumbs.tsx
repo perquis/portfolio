@@ -18,4 +18,6 @@ export default function Breadcrumbs({ links }: Record<"links", TBreadcrumb[]>) {
   );
 }
 
-const Dash = () => <span className="block w-5 text-center text-zinc-500">/</span>;
+const Dash = () => (
+  <span className="block w-5 text-center text-zinc-500">/</span>
+);

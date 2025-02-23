@@ -3,7 +3,12 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { Suspense } from "react";
-import { type EnrichedTweet, type TweetProps, type TwitterComponents, enrichTweet } from "react-tweet";
+import {
+  type EnrichedTweet,
+  type TweetProps,
+  type TwitterComponents,
+  enrichTweet,
+} from "react-tweet";
 import { type Tweet, getTweet } from "react-tweet/api";
 
 import { cn } from "@/libs/utils";
@@ -32,7 +37,12 @@ const Twitter = ({ className, ...props }: TwitterIconProps) => (
 );
 
 const Verified = ({ className, ...props }: TwitterIconProps) => (
-  <svg aria-label="Verified Account" viewBox="0 0 24 24" className={className} {...props}>
+  <svg
+    aria-label="Verified Account"
+    viewBox="0 0 24 24"
+    className={className}
+    {...props}
+  >
     <g fill="currentColor">
       <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z" />
     </g>
@@ -44,12 +54,29 @@ export const truncate = (str: string | null, length: number) => {
   return `${str.slice(0, length - 3)}...`;
 };
 
-const Skeleton = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div className={cn("rounded-md bg-primary/10", className)} {...props} />;
+const Skeleton = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div className={cn("rounded-md bg-primary/10", className)} {...props} />
+  );
 };
 
-export const TweetSkeleton = ({ className, ...props }: { className?: string; [key: string]: any }) => (
-  <div className={cn("flex size-full max-h-max min-w-72 flex-col gap-2 rounded-lg border p-4", className)} {...props}>
+export const TweetSkeleton = ({
+  className,
+  ...props
+}: {
+  className?: string;
+  [key: string]: any;
+}) => (
+  <div
+    className={cn(
+      "flex size-full max-h-max min-w-72 flex-col gap-2 rounded-lg border p-4",
+      className,
+    )}
+    {...props}
+  >
     <div className="flex flex-row gap-2">
       <Skeleton className="size-10 shrink-0 rounded-full" />
       <Skeleton className="h-10 w-full" />
@@ -58,9 +85,18 @@ export const TweetSkeleton = ({ className, ...props }: { className?: string; [ke
   </div>
 );
 
-export const TweetNotFound = ({ className, ...props }: { className?: string; [key: string]: any }) => (
+export const TweetNotFound = ({
+  className,
+  ...props
+}: {
+  className?: string;
+  [key: string]: any;
+}) => (
   <div
-    className={cn("flex size-full flex-col items-center justify-center gap-2 rounded-lg border p-4", className)}
+    className={cn(
+      "flex size-full flex-col items-center justify-center gap-2 rounded-lg border p-4",
+      className,
+    )}
     {...props}
   >
     <h3>Tweet not found</h3>
@@ -89,7 +125,9 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
         >
           {truncate(tweet.user.name, 20)}
           {tweet.user.verified ||
-            (tweet.user.is_blue_verified && <Verified className="ml-1 inline size-4 text-blue-500" />)}
+            (tweet.user.is_blue_verified && (
+              <Verified className="ml-1 inline size-4 text-blue-500" />
+            ))}
         </a>
         <div className="flex items-center space-x-1">
           <a
@@ -130,7 +168,13 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
             </a>
           );
         case "text":
-          return <span key={idx} className="text-sm font-normal" dangerouslySetInnerHTML={{ __html: entity.text }} />;
+          return (
+            <span
+              key={idx}
+              className="text-sm font-normal"
+              dangerouslySetInnerHTML={{ __html: entity.text }}
+            />
+          );
       }
     })}
   </div>
@@ -139,7 +183,14 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
 export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="flex flex-1 items-center justify-center">
     {tweet.video && (
-      <video poster={tweet.video.poster} autoPlay loop muted playsInline className="rounded-xl border shadow-sm">
+      <video
+        poster={tweet.video.poster}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="rounded-xl border shadow-sm"
+      >
         <source src={tweet.video.variants[0].src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

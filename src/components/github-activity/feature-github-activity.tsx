@@ -8,7 +8,12 @@ export const GithubActivity = () => {
 
   return (
     <Section className="max-w-screen-sm gap-5">
-      <Header heading="MY_GITHUB_ACTIVITY" description="GITHUB_ACTIVITY_DESCRIPTION" link={link} pathname="/blog" />
+      <Header
+        heading="MY_GITHUB_ACTIVITY"
+        description="GITHUB_ACTIVITY_DESCRIPTION"
+        link={link}
+        pathname="/blog"
+      />
       <Calendar />
     </Section>
   );

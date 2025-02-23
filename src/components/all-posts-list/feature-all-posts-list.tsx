@@ -1,12 +1,12 @@
 import { useTranslations } from "next-intl";
 import type { FC } from "react";
 
-import type { TMetadata } from "@/interfaces/markdown";
 import { Regular, SearchBar, Section, Title } from "@/shared/ui";
+import type { Metadata } from "@/shared/utils/get-metadata-list";
 
 import { List } from "./ui-list";
 
-export const AllPostsList: FC<Record<"items", TMetadata[]>> = ({ items }) => {
+export const AllPostsList: FC<Record<"items", Metadata[]>> = ({ items }) => {
   const fullYear = new Date("2024-07-01").getFullYear();
   const t = useTranslations();
 

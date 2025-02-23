@@ -7,7 +7,10 @@ export const WorkflowsList = () => {
 
   return (
     <Section className="gap-5">
-      <Header heading="HOME_PROCESS_TITLE" description="HOME_PROCESS_DESCRIPTION" />
+      <Header
+        heading="HOME_PROCESS_TITLE"
+        description="HOME_PROCESS_DESCRIPTION"
+      />
 
       <Code
         code={`\`\`\`tsx {showLineNumbers}

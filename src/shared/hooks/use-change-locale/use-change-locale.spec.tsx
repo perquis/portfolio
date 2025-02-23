@@ -20,7 +20,7 @@ jest.mock("next-intl/server", () => ({
 
 jest.mock("next-intl/navigation", () => ({
   __esModule: true,
-  createSharedPathnamesNavigation: jest.fn(() => ({
+  createNavigation: jest.fn(() => ({
     Link: () => <div></div>,
     redirect: jest.fn(),
     usePathname: jest.fn(() => "/"),

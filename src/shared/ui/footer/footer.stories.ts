@@ -8,7 +8,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "The **Footer** component is a simple component that displays a logo and a copyright notice.",
+        component:
+          "The **Footer** component is a simple component that displays a logo and a copyright notice.",
       },
     },
   },

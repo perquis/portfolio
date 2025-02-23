@@ -1,4 +1,9 @@
-import { DevicePhoneMobileIcon, FolderIcon, HomeIcon, NewspaperIcon } from "@heroicons/react/24/outline";
+import {
+  DevicePhoneMobileIcon,
+  FolderIcon,
+  HomeIcon,
+  NewspaperIcon,
+} from "@heroicons/react/24/outline";
 
 const links = [
   { Icon: HomeIcon, label: "About", href: "/" } as const,

@@ -3,18 +3,34 @@ import { useLocale } from "next-intl";
 import { Link } from "next-view-transitions";
 import { type ComponentProps } from "react";
 
-import type { TMetadata } from "@/interfaces/markdown";
 import { CalendarEvent } from "@/shared/icons/generals";
-import { Badge, DynamicImage, Paragraph, Regular, Section, Title } from "@/shared/ui";
+import {
+  Badge,
+  DynamicImage,
+  Paragraph,
+  Regular,
+  Section,
+  Title,
+} from "@/shared/ui";
+import type { Metadata } from "@/shared/utils/get-metadata-list";
 
 type NextLinkProps = ComponentProps<typeof Link>;
 
 type TCard = {
   className?: string;
 } & Omit<NextLinkProps, "href"> &
-  TMetadata;
+  Metadata;
 
-export default function Card({ title, description, className, light_img, dark_img, publishedAt, slug, tags }: TCard) {
+export default function Card({
+  title,
+  description,
+  className,
+  light_img,
+  dark_img,
+  publishedAt,
+  slug,
+  tags,
+}: TCard) {
   const locale = useLocale();
   const redirectTo = `/${locale}/blog/${slug}`;
 
@@ -31,7 +47,10 @@ export default function Card({ title, description, className, light_img, dark_im
       </Link>
 
       <Section className="mt-2 items-start">
-        <Link href={redirectTo} className="hover:underline focus-visible:underline">
+        <Link
+          href={redirectTo}
+          className="hover:underline focus-visible:underline"
+        >
           <Title level="b" className="text-lg">
             {title}
           </Title>
@@ -42,16 +61,27 @@ export default function Card({ title, description, className, light_img, dark_im
       <Section className="mt-2 !flex-row gap-1.5">
         <Section className="!flex-row gap-1.5 text-zinc-400">
           <CalendarEvent width={16} height={16} />
-          <Regular className="!text-xs !text-inherit">{locale === "en" ? "Published at:" : "Opublikowano:"}</Regular>
+          <Regular className="!text-xs !text-inherit">
+            {locale === "en" ? "Published at:" : "Opublikowano:"}
+          </Regular>
         </Section>
         <Paragraph className="!text-xs">
-          {publishedAt.toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" })}
+          {new Date(publishedAt).toLocaleDateString(locale, {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
         </Paragraph>
       </Section>
 
       <Section className="!flex-row gap-1.5">
         {tags.map((tag, i) => (
-          <Badge key={i} className="!px-2 !py-1 !text-xs" color="indigo" rounded="default">
+          <Badge
+            key={i}
+            className="!px-2 !py-1 !text-xs"
+            color="indigo"
+            rounded="default"
+          >
             {tag}
           </Badge>
         ))}

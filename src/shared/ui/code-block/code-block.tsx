@@ -15,7 +15,9 @@ type TCodeBlock = {
 };
 
 export default async function CodeBlock({ controls, snippets }: TCodeBlock) {
-  const processedCodeSnippets = await Promise.all(snippets.map(async ({ code }) => await highlightCode(code)));
+  const processedCodeSnippets = await Promise.all(
+    snippets.map(async ({ code }) => await highlightCode(code)),
+  );
 
   return (
     <CodeBlockProvider name={controls[0].name}>

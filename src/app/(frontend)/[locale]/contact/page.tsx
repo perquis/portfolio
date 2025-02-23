@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-import { ContactForm, FAQSection, HeroSection, ServicesList, SocialLinksList } from "@/components";
+import {
+  ContactForm,
+  FAQSection,
+  HeroSection,
+  ServicesList,
+  SocialLinksList,
+} from "@/components";
+import type { APIRequestParams } from "@/interfaces/i18n";
 import { Layout } from "@/shared/ui";
 
 export async function generateMetadata({
-  params: { locale },
-}: Readonly<{ params: { locale: string } }>): Promise<Metadata> {
+  params,
+}: APIRequestParams): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale });
 
   return {
@@ -15,9 +23,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Contact({ params: { locale } }: Readonly<{ params: { locale: string } }>) {
-  unstable_setRequestLocale(locale);
-
+export default async function Contact() {
   return (
     <div>
       <Layout>

@@ -9,7 +9,16 @@ import { ScheduleMeeting } from "@/components";
 import { usePathname } from "@/libs/next-intl";
 import { useAlert } from "@/providers/alert";
 import { useOpen } from "@/shared/hooks";
-import { Button, Checkbox, Form, Header, Input, Regular, Section, Textarea } from "@/shared/ui";
+import {
+  Button,
+  Checkbox,
+  Form,
+  Header,
+  Input,
+  Regular,
+  Section,
+  Textarea,
+} from "@/shared/ui";
 
 import { contactFormSchema } from "./schema-contact-form";
 import { sendMail } from "./utils-send-mail";
@@ -93,8 +102,14 @@ export const ClientContactForm = () => {
             placeholder={t("CONTACT_FORM_PLACEHOLDER_MESSAGE")}
           />
           <label className="mt-2 flex items-start gap-3" htmlFor="checked">
-            <Checkbox {...register("checked", { required: true })} required id="checked" />
-            <Regular className="select-none !text-xs">{t("CONTACT_FORM_CHECKBOX_AGREE")}</Regular>
+            <Checkbox
+              {...register("checked", { required: true })}
+              required
+              id="checked"
+            />
+            <Regular className="select-none !text-xs">
+              {t("CONTACT_FORM_CHECKBOX_AGREE")}
+            </Regular>
           </label>
         </Section>
 

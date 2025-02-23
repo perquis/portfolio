@@ -15,10 +15,17 @@ export interface IIconButton {
   children: ButtonProps["children"];
 }
 
-type IconButtonWithIcon = Omit<IIconButton, "children"> & { icon: IconName; children?: never };
-type IconButtonWithChildren = Omit<IIconButton, "icon"> & { children: ButtonProps["children"]; icon?: never };
+type IconButtonWithIcon = Omit<IIconButton, "children"> & {
+  icon: IconName;
+  children?: never;
+};
+type IconButtonWithChildren = Omit<IIconButton, "icon"> & {
+  children: ButtonProps["children"];
+  icon?: never;
+};
 
 export type TIconButton = IconButtonWithIcon | IconButtonWithChildren;
 
-export type ButtonPropsWithSize = Pick<IIconButton, "size" | "rounded"> & ButtonProps;
+export type ButtonPropsWithSize = Pick<IIconButton, "size" | "rounded"> &
+  ButtonProps;
 export type IconButtonProps = TIconButton & ButtonProps;

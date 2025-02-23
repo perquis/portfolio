@@ -9,7 +9,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "The **Dialog** component is a simple component that displays a modal dialog.",
+        component:
+          "The **Dialog** component is a simple component that displays a modal dialog.",
       },
     },
   },
@@ -19,7 +20,17 @@ const meta = {
       control: {
         type: "select",
       },
-      options: ["top-left", "top", "top-right", "left", "center", "right", "bottom-left", "bottom", "bottom-right"],
+      options: [
+        "top-left",
+        "top",
+        "top-right",
+        "left",
+        "center",
+        "right",
+        "bottom-left",
+        "bottom",
+        "bottom-right",
+      ],
     },
   },
 } satisfies Meta<typeof Dialog>;
@@ -32,8 +43,9 @@ const Example = () => (
     <Section className="gap-2">
       <Title level="h6">We use cookies 🍪</Title>
       <Paragraph>
-        To provide you with the best experience on our website, we use cookies. Cookies help us personalize content,
-        analyze site traffic, and deliver advertisements tailored to your interests.
+        To provide you with the best experience on our website, we use cookies.
+        Cookies help us personalize content, analyze site traffic, and deliver
+        advertisements tailored to your interests.
       </Paragraph>
     </Section>
     <Section className="!flex-row justify-end gap-2">

@@ -7,7 +7,11 @@ import ReactFocusLock, { type ReactFocusLockProps } from "react-focus-lock";
 import { match } from "ts-pattern";
 
 import type { Alignment } from "@/interfaces/variants";
-import { useHideBodyScrollbar, useKey, useOutsideOnClick } from "@/shared/hooks";
+import {
+  useHideBodyScrollbar,
+  useKey,
+  useOutsideOnClick,
+} from "@/shared/hooks";
 import { IconButton, Section } from "@/shared/ui";
 
 interface IDialog {
@@ -18,7 +22,13 @@ interface IDialog {
   options?: ReactFocusLockProps<ReactNode, Record<string, any>>;
 }
 
-export default function Dialog({ isOpen, close, alignment = "center", children, options }: IDialog) {
+export default function Dialog({
+  isOpen,
+  close,
+  alignment = "center",
+  children,
+  options,
+}: IDialog) {
   const classes = match(alignment)
     .with("center", () => "justify-center items-center")
     .with("bottom", () => "justify-center items-end")
@@ -51,7 +61,12 @@ export default function Dialog({ isOpen, close, alignment = "center", children, 
           className="relative h-screen max-w-screen-sm border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-950 sm:h-auto sm:rounded-2xl sm:shadow"
           ref={dialogRef}
         >
-          <IconButton className="absolute right-3 top-3" size="medium" icon="Close" onClick={close} />
+          <IconButton
+            className="absolute right-3 top-3"
+            size="medium"
+            icon="Close"
+            onClick={close}
+          />
           {children}
         </Section>
       </ReactFocusLock>

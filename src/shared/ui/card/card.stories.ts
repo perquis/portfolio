@@ -35,14 +35,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     title: "Card Title",
-    description: "This is a description of the card. It can be used to provide more information about the card.",
+    description:
+      "This is a description of the card. It can be used to provide more information about the card.",
     light_img: placeholders.images,
     dark_img: placeholders.images,
     publishedAt: new Date(),
     slug: "card-slug",
     tags: ["tag1", "tag2"],
     year: 2021,
-    updatedAt: new Date(),
-    open_graph_img: placeholders.images,
   },
 };

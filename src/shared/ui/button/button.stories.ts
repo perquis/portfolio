@@ -37,7 +37,8 @@ export const Simple: Story = {
   parameters: {
     docs: {
       description: {
-        story: "The **Button** component is a primary button that users can click to perform an action.",
+        story:
+          "The **Button** component is a primary button that users can click to perform an action.",
       },
     },
   },

@@ -26,14 +26,21 @@ export default function Divider({ className, ...props }: TDivider) {
       key={id + index}
       className={clsx(
         "h-[1px] flex-grow rounded-sm bg-zinc-300 dark:bg-zinc-700",
-        innerWidth >= 400 && innerWidth < 640 && index > 20 && "hidden sm:block",
+        innerWidth >= 400 &&
+          innerWidth < 640 &&
+          index > 20 &&
+          "hidden sm:block",
         innerWidth <= 400 && index > 12 && "!hidden sm:!block",
       )}
     ></div>
   ));
 
   return (
-    <motion.div layout="position" className={clsx("mx-auto flex w-full max-w-screen-sm gap-2", className)} {...props}>
+    <motion.div
+      layout="position"
+      className={clsx("mx-auto flex w-full max-w-screen-sm gap-2", className)}
+      {...props}
+    >
       {dots}
     </motion.div>
   );

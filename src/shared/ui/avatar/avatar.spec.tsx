@@ -13,7 +13,9 @@ jest.mock("next-intl/navigation", () => ({
 }));
 
 jest.mock("../../ui", () => ({
-  Ratio: ({ children, ...props }: ComponentProps<"div">) => <div {...props}>{children}</div>,
+  Ratio: ({ children, ...props }: ComponentProps<"div">) => (
+    <div {...props}>{children}</div>
+  ),
 }));
 
 interface AvatarTestInput {
@@ -31,11 +33,19 @@ describe("Avatar", () => {
     { rounded: "full", size: "small" },
     { rounded: "full", size: "medium" },
     { rounded: "full", size: "large" },
-  ] as AvatarTestInput[])("renders correctly with rounded $rounded and size $size", ({ rounded, size }) => {
-    const { asFragment } = render(
-      <Avatar src="http://example.com/static/avatar.png" alt="User Avatar" rounded={rounded} size={size} />,
-    );
+  ] as AvatarTestInput[])(
+    "renders correctly with rounded $rounded and size $size",
+    ({ rounded, size }) => {
+      const { asFragment } = render(
+        <Avatar
+          src="http://example.com/static/avatar.png"
+          alt="User Avatar"
+          rounded={rounded}
+          size={size}
+        />,
+      );
 
-    expect(asFragment()).toMatchSnapshot();
-  });
+      expect(asFragment()).toMatchSnapshot();
+    },
+  );
 });

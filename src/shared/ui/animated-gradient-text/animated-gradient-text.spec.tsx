@@ -5,7 +5,9 @@ import AnimatedGradientText from "./animated-gradient-text";
 
 describe("AnimatedGradientText", () => {
   it("renders correctly", () => {
-    const { asFragment } = render(<AnimatedGradientText>children</AnimatedGradientText>);
+    const { asFragment } = render(
+      <AnimatedGradientText>children</AnimatedGradientText>,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

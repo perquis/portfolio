@@ -17,7 +17,10 @@ export const Calendar = () => {
   if (!mounted) return null;
 
   const currentYear = new Date().getFullYear(),
-    items = Array.from({ length: currentYear - 2020 + 1 }, (_, i) => currentYear - i).sort((a, b) => a - b),
+    items = Array.from(
+      { length: currentYear - 2020 + 1 },
+      (_, i) => currentYear - i,
+    ).sort((a, b) => a - b),
     years = [...items];
 
   return (
