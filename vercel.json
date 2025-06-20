@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
       "develop": false,
@@ -7,5 +8,6 @@
   },
   "github": {
     "enabled": false
-  }
+  },
+  "installCommand": "npm ci --ignore-scripts --legacy-peer-deps"
 }

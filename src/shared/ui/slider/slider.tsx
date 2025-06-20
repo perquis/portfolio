@@ -27,7 +27,8 @@ interface ISlider {
 
 export default function Slider({ slides }: ISlider) {
   const {
-      animate: { page, diff },
+      page,
+      translateX,
       duration: { current: transition },
       actions,
       slideRef,
@@ -46,7 +47,7 @@ export default function Slider({ slides }: ISlider) {
 
       <Container className="relative !px-0">
         <Motion
-          animate={{ translateX: diff * -page }}
+          animate={{ translateX }}
           transition={transition}
           className="w-full"
         >
