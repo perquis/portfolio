@@ -15,6 +15,7 @@ import {
   Form,
   Header,
   Input,
+  Motion,
   Regular,
   Section,
   Textarea,
@@ -58,75 +59,77 @@ export const ClientContactForm = () => {
   });
 
   return (
-    <Section className="gap-10">
-      <Section className="items-start gap-5">
-        <Header
-          heading="CONTACT_FORM_TITLE"
-          description="CONTACT_FORM_DESCRIPTION"
-          pathname="/contact"
-          link={{
-            name: "FAQ",
-            url: "/contact#faq",
-          }}
-        />
-
-        {pathname !== "/" && <ScheduleMeeting />}
-      </Section>
-
-      <Form className="!gap-10" onSubmit={onSubmit}>
-        <Section className="gap-3">
-          <Section className="gap-3 sm:!flex-row">
-            <Input
-              placeholder={t("CONTACT_FORM_PLACEHOLDER_NAME")}
-              autoComplete="name"
-              labelText={t("CONTACT_FORM_INPUT_NAME")}
-              id="name"
-              error={errors.name?.message}
-              {...register("name", { required: true })}
-            />
-            <Input
-              type="email"
-              autoComplete="email"
-              placeholder={t("CONTACT_FORM_PLACEHOLDER_EMAIL")}
-              labelText={t("CONTACT_FORM_INPUT_EMAIL")}
-              id="email"
-              error={errors.email?.message}
-              {...register("email", { required: true })}
-            />
-          </Section>
-          <Textarea
-            labelText={t("CONTACT_FORM_INPUT_MESSAGE")}
-            id="message"
-            error={errors.message?.message}
-            {...register("message", { required: true })}
-            placeholder={t("CONTACT_FORM_PLACEHOLDER_MESSAGE")}
+    <Motion layout>
+      <Section className="gap-10">
+        <Section className="items-start gap-5">
+          <Header
+            heading="CONTACT_FORM_TITLE"
+            description="CONTACT_FORM_DESCRIPTION"
+            pathname="/contact"
+            link={{
+              name: "FAQ",
+              url: "/contact#faq",
+            }}
           />
-          <label className="mt-2 flex items-start gap-3" htmlFor="checked">
-            <Checkbox
-              {...register("checked", { required: true })}
-              required
-              id="checked"
-            />
-            <Regular className="select-none !text-xs">
-              {t("CONTACT_FORM_CHECKBOX_AGREE")}
-            </Regular>
-          </label>
+
+          {pathname !== "/" && <ScheduleMeeting />}
         </Section>
 
-        <Button
-          type="submit"
-          mode="simple"
-          size="medium"
-          variants="black"
-          loading={loading}
-          disabled={!!alert}
-          className="!justify-center"
-        >
-          {t("CONTACT_FORM_BUTTON_SEND")}
-        </Button>
+        <Form className="!gap-10" onSubmit={onSubmit}>
+          <Section className="gap-3">
+            <Section className="gap-3 sm:!flex-row">
+              <Input
+                placeholder={t("CONTACT_FORM_PLACEHOLDER_NAME")}
+                autoComplete="name"
+                labelText={t("CONTACT_FORM_INPUT_NAME")}
+                id="name"
+                error={errors.name?.message}
+                {...register("name", { required: true })}
+              />
+              <Input
+                type="email"
+                autoComplete="email"
+                placeholder={t("CONTACT_FORM_PLACEHOLDER_EMAIL")}
+                labelText={t("CONTACT_FORM_INPUT_EMAIL")}
+                id="email"
+                error={errors.email?.message}
+                {...register("email", { required: true })}
+              />
+            </Section>
+            <Textarea
+              labelText={t("CONTACT_FORM_INPUT_MESSAGE")}
+              id="message"
+              error={errors.message?.message}
+              {...register("message", { required: true })}
+              placeholder={t("CONTACT_FORM_PLACEHOLDER_MESSAGE")}
+            />
+            <label className="mt-2 flex items-start gap-3" htmlFor="checked">
+              <Checkbox
+                {...register("checked", { required: true })}
+                required
+                id="checked"
+              />
+              <Regular className="select-none !text-xs">
+                {t("CONTACT_FORM_CHECKBOX_AGREE")}
+              </Regular>
+            </label>
+          </Section>
 
-        <Regular>{t("CONTACT_FORM_TIME_TO_RESPONSE")}</Regular>
-      </Form>
-    </Section>
+          <Button
+            type="submit"
+            mode="simple"
+            size="medium"
+            variants="black"
+            loading={loading}
+            disabled={!!alert}
+            className="!justify-center"
+          >
+            {t("CONTACT_FORM_BUTTON_SEND")}
+          </Button>
+
+          <Regular>{t("CONTACT_FORM_TIME_TO_RESPONSE")}</Regular>
+        </Form>
+      </Section>
+    </Motion>
   );
 };
