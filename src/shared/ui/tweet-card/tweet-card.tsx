@@ -181,7 +181,7 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
 );
 
 export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => (
-  <div className="flex flex-1 items-center justify-center">
+  <div className="mt-2 flex flex-1 items-center justify-center">
     {tweet.video && (
       <video
         poster={tweet.video.poster}
@@ -191,7 +191,10 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => (
         playsInline
         className="rounded-xl border shadow-sm"
       >
-        <source src={tweet.video.variants[0].src} type="video/mp4" />
+        <source
+          src={tweet.video.variants[tweet.video.variants.length - 1].src}
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
     )}
@@ -237,7 +240,7 @@ export const MagicTweet = ({
   return (
     <div
       className={cn(
-        "relative flex size-full max-w-lg flex-col gap-2 overflow-hidden rounded-lg border p-4 backdrop-blur-md",
+        "relative flex size-full flex-col gap-2 overflow-hidden rounded-lg border p-4 shadow-sm backdrop-blur-md",
         className,
       )}
       {...props}

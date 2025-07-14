@@ -62,7 +62,8 @@ const nextConfig: NextConfig = {
               default-src 'self';
               script-src 'self' 'unsafe-eval' 'unsafe-inline' app.cal.com unpkg.com;
               img-src *;
-              frame-src 'self' www.youtube.com cal.com app.cal.com *.codesandbox.io;
+              media-src 'self' video.twimg.com;
+              frame-src 'self' www.youtube.com cal.com app.cal.com *.codesandbox.io video.twimg.com;
               style-src 'self' 'unsafe-inline';
               font-src 'self';
               connect-src 'self' cdn.jsdelivr.net unpkg.com lottie.host github-contributions-api.jogruber.de;

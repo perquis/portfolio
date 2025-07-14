@@ -1,6 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
 
-
 describe("get-metadata-list", () => {
   // it("should return metadata", async () => {
   //   await expect(
@@ -24,5 +23,5 @@ describe("get-metadata-list", () => {
   // });
   it("", () => {
     expect(true).toBe(true);
-  })
+  });
 });
