@@ -35,9 +35,11 @@ export const getMetadataList = async (
               "utf-8",
             )
             .then(JSON.parse)
-            .catch(handleFilePathError),
+            .catch(() => null),
         ),
-      ).catch(handleFilePathError),
+      )
+        .then((results) => results.filter((item): item is Metadata => item !== null && !Array.isArray(item)))
+        .catch(handleFilePathError),
     )
     .catch(handleFilePathError);
 };

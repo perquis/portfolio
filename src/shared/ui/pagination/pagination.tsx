@@ -59,6 +59,7 @@ const PageLink = (props: IPagination["next"]) => {
   return (
     <Section className="gap-1">
       <Regular className="text-xs">{props?.children}</Regular>
+      {/* @ts-expect-error next-view-transitions types lag behind React 19 popover attribute */}
       <NextViewTransitionLink
         className={clsx("!text-sm font-medium", props?.className)}
         {...props!}

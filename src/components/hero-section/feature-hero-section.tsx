@@ -1,6 +1,6 @@
 import type { ComponentProps, FC } from "react";
 
-import { AboutMe } from "@/components";
+import { AboutMe } from "@/components/about-me/feature-about-me";
 import { CodeBlock, Section } from "@/shared/ui";
 import { calculateYearsSince } from "@/shared/utils";
 

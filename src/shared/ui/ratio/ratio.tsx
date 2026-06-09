@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import type { ComponentProps } from "react";
 
 import type { Resolution } from "@/interfaces/variants";
@@ -26,12 +26,12 @@ export default function Ratio({
   return (
     <div className={clsx("relative", className)} style={style} {...props}>
       <Image
-        layout="fill"
-        objectFit="cover"
+        fill
         unoptimized
         priority
         src={src}
         alt={alt}
+        style={{ objectFit: "cover" }}
       />
     </div>
   );

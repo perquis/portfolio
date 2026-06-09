@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { ScheduleMeeting } from "@/components";
+import { ScheduleMeeting } from "@/components/schedule-meeting/feature-schedule-meeting";
 import { socials } from "@/data";
 import { usePathname } from "@/libs/next-intl";
 import * as icons from "@/shared/icons/generals";

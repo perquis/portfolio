@@ -54,7 +54,6 @@ export function CommandMenu({ data }: ICommandMenu) {
             <CommandItem key={label} asChild onSelect={() => push(href)}>
               <div className="flex w-full items-center gap-4">
                 <Icon />
-                {/* @ts-expect-error */}
                 {t(`NAVIGATION_${label.toUpperCase()}`)}
               </div>
             </CommandItem>
@@ -70,7 +69,6 @@ export function CommandMenu({ data }: ICommandMenu) {
             >
               <button className="flex w-full items-center gap-4">
                 <Icon />
-                {/* @ts-expect-error */}
                 {t(label)}
               </button>
             </CommandItem>

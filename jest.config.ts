@@ -22,11 +22,6 @@ const config: Config.InitialOptions = {
       },
     },
   },
-  transformIgnorePatterns: [
-    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-    "node_modules/(?!rehype-pretty-code|shiki)",
-    "node_modules/",
-  ],
 };
 
 module.exports = createJestConfig(config);

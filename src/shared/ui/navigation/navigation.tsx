@@ -47,7 +47,6 @@ const Menu: FC<TMenu> = ({ links, lock }) => {
     <Section className="hidden !flex-row gap-3 text-xs sm:flex">
       {links.map(({ href, label }) => (
         <Tab key={href} href={href} lock={lock}>
-          {/* @ts-expect-error */}
           {t(`NAVIGATION_${label.toUpperCase()}`)}
         </Tab>
       ))}

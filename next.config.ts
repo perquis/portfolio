@@ -2,15 +2,10 @@ import "@next/env";
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const withNextIntl = createNextIntlPlugin("./src/config/i18n.ts");
 const withMDX = createMDX({
   extension: /\.mdx?$/,
-  options: {
-    rehypePlugins: [[rehypeAutolinkHeadings, { behavior: "wrap" }]],
-    remarkPlugins: [],
-  },
 });
 
 const nextConfig: NextConfig = {
@@ -22,7 +17,21 @@ const nextConfig: NextConfig = {
       exclude: ["error", "warn", "log"],
     },
   },
-  transpilePackages: ["next-mdx-remote", "shiki", "geist"],
+  transpilePackages: [
+    "next-mdx-remote",
+    "shiki",
+    "geist",
+    "next-intl",
+    "use-intl",
+    "@formatjs/fast-memoize",
+    "@formatjs/intl-localematcher",
+    "icu-minify",
+    "intl-messageformat",
+    "@schummar/icu-type-parser",
+    "@formatjs/icu-messageformat-parser",
+    "@formatjs/icu-skeleton-parser",
+  ],
+  serverExternalPackages: ["sharp", "detect-libc", "@parcel/watcher"],
   webpack: (config) => {
     config.resolve.fallback = { fs: false, path: false };
     return config;

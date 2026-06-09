@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
 
-import { ScheduleMeeting } from "@/components";
+import { ScheduleMeeting } from "@/components/schedule-meeting/feature-schedule-meeting";
 import { usePathname } from "@/libs/next-intl";
 import { useAlert } from "@/providers/alert";
 import { useOpen } from "@/shared/hooks";
