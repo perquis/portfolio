@@ -46,9 +46,6 @@ export const useAnimate = () => {
       window.removeEventListener("resize", resizeEvent);
     };
 
-    // We don't want to recalculate on every render,
-    // only on initial mount and when the window resizes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const actions = useMemo(

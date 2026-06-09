@@ -1,9 +1,9 @@
 import { type PropsWithChildren, createContext, useContext } from "react";
 
 import type { Nullable } from "@/interfaces/utility-types";
-import type * as stacks from "@/shared/icons/programming-languages";
+import type { StackIconName } from "@/shared/icons/programming-languages/stack-icon";
 
-type IconName = keyof typeof stacks;
+type IconName = StackIconName;
 
 export interface CodeComparisonContext {
   beforeCode: string;

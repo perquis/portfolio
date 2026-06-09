@@ -20,7 +20,7 @@ export const GET_RESOURCE_PATH = (args: DataSourceResourcesConfig): string =>
   );
 
 const convertToObjectWithSlug = (slugs: string[]): ResourceSlug[] =>
-  slugs.map((slug) => ({ slug }));
+  slugs.filter((slug) => !slug.startsWith("_")).map((slug) => ({ slug }));
 
 const returnEmptyArray = () => [];
 

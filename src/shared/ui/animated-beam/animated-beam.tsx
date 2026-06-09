@@ -32,8 +32,8 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   fromRef,
   toRef,
   curvature = 0,
-  reverse = false, // Include the reverse prop
-  duration = Math.random() * 3 + 4,
+  reverse = false,
+  duration,
   delay = 0,
   pathColor = "gray",
   pathWidth = 2,
@@ -46,6 +46,7 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   endYOffset = 0,
 }) => {
   const id = useId();
+  const [resolvedDuration] = useState(() => duration ?? Math.random() * 3 + 4);
   const [pathD, setPathD] = useState("");
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
 
@@ -167,7 +168,7 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
           }}
           transition={{
             delay,
-            duration,
+            duration: resolvedDuration,
             ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
             repeat: Infinity,
             repeatDelay: 0,

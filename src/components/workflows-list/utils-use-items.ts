@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 
 export const useItems = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const t = useTranslations();
 
   return [

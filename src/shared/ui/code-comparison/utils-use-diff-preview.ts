@@ -8,33 +8,37 @@ import { useCodeComparisonContext } from "./provider-code-comparison";
 
 export type HighlightedCode = [before: string, after: string];
 
+const loadTheme = (name: string) =>
+  name === "dark"
+    ? import("@/shared/themes/expo-dark.json")
+    : import("@/shared/themes/expo-light.json");
+
 export const useDiffPreview = () => {
-  const theme = useSelectedTheme(),
+  const themeName = useSelectedTheme(),
     { language: lang, beforeCode, afterCode } = useCodeComparisonContext()!,
     [status, actions] = useInteractiveActions();
 
-  const [highlighted, setHighlighted] = useState([beforeCode, afterCode]),
-    shikiOptions = useMemo(() => ({ lang, theme }), [lang, theme]);
-
-  const beforeCodeHtml = codeToHtml(beforeCode, shikiOptions),
-    afterCodeHtml = codeToHtml(afterCode, shikiOptions);
-
-  const retrieveCodeComparisonAsync = Promise.all([
-    beforeCodeHtml,
-    afterCodeHtml,
-  ]);
+  const [highlighted, setHighlighted] = useState([beforeCode, afterCode]);
+  const deps = useMemo(() => ({ lang, themeName }), [lang, themeName]);
 
   useEffect(() => {
     actions.setLoading();
 
-    retrieveCodeComparisonAsync
+    loadTheme(deps.themeName)
+      .then((mod) => {
+        const theme = JSON.parse(JSON.stringify(mod.default)) as object;
+        return Promise.all([
+          codeToHtml(beforeCode, { lang: deps.lang, theme }),
+          codeToHtml(afterCode, { lang: deps.lang, theme }),
+        ]);
+      })
       .then(setHighlighted)
       .then(actions.setSuccess)
       .catch(actions.setError);
 
     return actions.resetStatus;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme]);
+  }, [deps]);
 
   return {
     highlighted,

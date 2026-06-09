@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-type-imports */
 import type { ComponentProps } from "react";
 
 import type { Rounded, Size } from "@/interfaces/variants";

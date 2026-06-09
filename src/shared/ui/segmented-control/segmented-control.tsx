@@ -4,11 +4,11 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { Fragment } from "react";
 
-import * as stacks from "@/shared/icons/programming-languages";
+import { StackIcon } from "@/shared/icons/programming-languages/stack-icon";
 import { Section } from "@/shared/ui";
 import { useCode } from "@/shared/ui/code-block/provider-code-block";
 
-type IconName = keyof typeof stacks;
+type IconName = React.ComponentProps<typeof StackIcon>["name"];
 
 interface Control {
   icon: IconName;
@@ -23,7 +23,6 @@ export default function SegmentedControl({ controls }: TSegmentedControl) {
   return (
     <Section className="relative w-fit !flex-row items-center gap-2 rounded-[10px] border border-zinc-200 bg-zinc-100 p-1 dark:border-zinc-800 dark:bg-zinc-950">
       {controls.map(({ name, icon }, index) => {
-        const Icon = stacks[icon];
         const isAcive = selected === name;
 
         return (
@@ -36,7 +35,7 @@ export default function SegmentedControl({ controls }: TSegmentedControl) {
               )}
               disabled={isAcive}
             >
-              <Icon width={20} height={20} className="z-10" />{" "}
+              <StackIcon name={icon} width={20} height={20} className="z-10" />{" "}
               <span className="z-10 select-none text-sm drop-shadow">
                 {name}
               </span>

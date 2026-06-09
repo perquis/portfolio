@@ -34,6 +34,7 @@ const usePlatform = () => {
       return os;
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPlatform(getOS());
   }, []);
 

@@ -29,6 +29,7 @@ const useOutsideOnClick = <T extends Element | null>(
 
   useEffect(() => {
     if (isOutsideElement) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsOutsideElement(false);
       return close();
     }

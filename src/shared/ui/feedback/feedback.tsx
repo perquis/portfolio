@@ -1,16 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { AnimatePresence } from "framer-motion";
 
 import { emojis } from "@/data";
 import {
-  Emoji,
   IconButton,
   Motion,
   Paragraph,
   Section,
   Title,
 } from "@/shared/ui";
+
+const Emoji = dynamic(() => import("@/shared/ui/emoji/emoji"), { ssr: false });
 
 interface IFeedback {
   title: string;

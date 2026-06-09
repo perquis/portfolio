@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useLayoutEffect, useState } from "react";
 
 import { usePathname } from "@/libs/next-intl";
 import { useEventCallback } from "@/shared/hooks";
@@ -25,7 +25,8 @@ export default function useScrollDirection(position: Position = "y") {
     setLastScroll(currentPos <= 0 ? 0 : currentPos);
   }, [currentPos, lastScroll, position]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDirection(position === "y" ? "up" : "left");
     window.scrollTo(0, 0);
   }, [position, pathname]);

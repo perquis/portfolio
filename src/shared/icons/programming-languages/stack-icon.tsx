@@ -1,0 +1,93 @@
+import dynamic from "next/dynamic";
+import type { ComponentProps, ComponentType, SVGProps } from "react";
+
+type SvgIcon = ComponentType<SVGProps<SVGSVGElement>>;
+
+const iconMap: Record<string, SvgIcon> = {
+  Android: dynamic(() => import("./android")) as unknown as SvgIcon,
+  Angular: dynamic(() => import("./angular")) as unknown as SvgIcon,
+  Apollo: dynamic(() => import("./apollo")) as unknown as SvgIcon,
+  Assembly: dynamic(() => import("./assembly")) as unknown as SvgIcon,
+  Azure: dynamic(() => import("./azure")) as unknown as SvgIcon,
+  Cpp: dynamic(() => import("./cpp")) as unknown as SvgIcon,
+  Csharp: dynamic(() => import("./csharp")) as unknown as SvgIcon,
+  Css: dynamic(() => import("./css")) as unknown as SvgIcon,
+  Cypress: dynamic(() => import("./cypress")) as unknown as SvgIcon,
+  DefinitionType: dynamic(() => import("./d.ts")) as unknown as SvgIcon,
+  Dart: dynamic(() => import("./dart")) as unknown as SvgIcon,
+  Docker: dynamic(() => import("./docker")) as unknown as SvgIcon,
+  Eslintrc: dynamic(() => import("./eslintrc")) as unknown as SvgIcon,
+  Figma: dynamic(() => import("./figma")) as unknown as SvgIcon,
+  Firebase: dynamic(() => import("./firebase")) as unknown as SvgIcon,
+  Font: dynamic(() => import("./font")) as unknown as SvgIcon,
+  Gatsby: dynamic(() => import("./gatsby")) as unknown as SvgIcon,
+  Git: dynamic(() => import("./git")) as unknown as SvgIcon,
+  Go: dynamic(() => import("./go")) as unknown as SvgIcon,
+  Godot: dynamic(() => import("./godot")) as unknown as SvgIcon,
+  Graphql: dynamic(() => import("./graphql")) as unknown as SvgIcon,
+  Heroku: dynamic(() => import("./heroku")) as unknown as SvgIcon,
+  Html: dynamic(() => import("./html")) as unknown as SvgIcon,
+  Http: dynamic(() => import("./http")) as unknown as SvgIcon,
+  Husky: dynamic(() => import("./husky")) as unknown as SvgIcon,
+  I18n: dynamic(() => import("./i18n")) as unknown as SvgIcon,
+  Jar: dynamic(() => import("./jar")) as unknown as SvgIcon,
+  Java: dynamic(() => import("./java")) as unknown as SvgIcon,
+  Js: dynamic(() => import("./js")) as unknown as SvgIcon,
+  Jsconfig: dynamic(() => import("./jsconfig")) as unknown as SvgIcon,
+  Json: dynamic(() => import("./json")) as unknown as SvgIcon,
+  Jsx: dynamic(() => import("./jsx")) as unknown as SvgIcon,
+  Kotlin: dynamic(() => import("./kotlin")) as unknown as SvgIcon,
+  Laravel: dynamic(() => import("./laravel")) as unknown as SvgIcon,
+  Log: dynamic(() => import("./log")) as unknown as SvgIcon,
+  Markdown: dynamic(() => import("./markdown")) as unknown as SvgIcon,
+  Mdx: dynamic(() => import("./mdx")) as unknown as SvgIcon,
+  Minecraft: dynamic(() => import("./minecraft")) as unknown as SvgIcon,
+  Nest: dynamic(() => import("./nest")) as unknown as SvgIcon,
+  Netlify: dynamic(() => import("./netlify")) as unknown as SvgIcon,
+  Next: dynamic(() => import("./next")) as unknown as SvgIcon,
+  Nginx: dynamic(() => import("./nginx")) as unknown as SvgIcon,
+  Nodemon: dynamic(() => import("./nodemon")) as unknown as SvgIcon,
+  Nuxt: dynamic(() => import("./nuxt")) as unknown as SvgIcon,
+  Package: dynamic(() => import("./package")) as unknown as SvgIcon,
+  Parcel: dynamic(() => import("./parcel")) as unknown as SvgIcon,
+  Php: dynamic(() => import("./php")) as unknown as SvgIcon,
+  Pnpm: dynamic(() => import("./pnpm")) as unknown as SvgIcon,
+  Powerpoint: dynamic(() => import("./powerpoint")) as unknown as SvgIcon,
+  Prettierrc: dynamic(() => import("./prettierrc")) as unknown as SvgIcon,
+  Prisma: dynamic(() => import("./prisma")) as unknown as SvgIcon,
+  Pug: dynamic(() => import("./pug")) as unknown as SvgIcon,
+  Py: dynamic(() => import("./py")) as unknown as SvgIcon,
+  Remix: dynamic(() => import("./remix")) as unknown as SvgIcon,
+  Robots: dynamic(() => import("./robots")) as unknown as SvgIcon,
+  Ruby: dynamic(() => import("./ruby")) as unknown as SvgIcon,
+  Rust: dynamic(() => import("./rust")) as unknown as SvgIcon,
+  Scss: dynamic(() => import("./scss")) as unknown as SvgIcon,
+  Sh: dynamic(() => import("./sh")) as unknown as SvgIcon,
+  Storybook: dynamic(() => import("./storybook")) as unknown as SvgIcon,
+  Supabase: dynamic(() => import("./supabase")) as unknown as SvgIcon,
+  Svg: dynamic(() => import("./svg")) as unknown as SvgIcon,
+  Tailwindcss: dynamic(() => import("./tailwindcss")) as unknown as SvgIcon,
+  TestJS: dynamic(() => import("./test.js")) as unknown as SvgIcon,
+  TestJSX: dynamic(() => import("./test.jsx")) as unknown as SvgIcon,
+  TestTS: dynamic(() => import("./test.ts")) as unknown as SvgIcon,
+  Ts: dynamic(() => import("./ts")) as unknown as SvgIcon,
+  Tsconfig: dynamic(() => import("./tsconfig")) as unknown as SvgIcon,
+  Tsx: dynamic(() => import("./tsx")) as unknown as SvgIcon,
+  Uml: dynamic(() => import("./uml")) as unknown as SvgIcon,
+  Vercel: dynamic(() => import("./vercel")) as unknown as SvgIcon,
+  Vue: dynamic(() => import("./vue")) as unknown as SvgIcon,
+  Webpack: dynamic(() => import("./webpack")) as unknown as SvgIcon,
+  Xml: dynamic(() => import("./xml")) as unknown as SvgIcon,
+  Yaml: dynamic(() => import("./yaml")) as unknown as SvgIcon,
+};
+
+export type StackIconName = keyof typeof iconMap;
+
+export function StackIcon({
+  name,
+  ...props
+}: { name: StackIconName } & ComponentProps<"svg">) {
+  const Icon = iconMap[name];
+  if (!Icon) return null;
+  return <Icon {...props} />;
+}

@@ -6,7 +6,6 @@ interface Provider<TProps> {
   props?: Omit<TProps, "children">;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function composeProviders<TProviders extends Array<Provider<any>>>(
   providers: TProviders,
 ): React.ComponentType<React.PropsWithChildren> {
