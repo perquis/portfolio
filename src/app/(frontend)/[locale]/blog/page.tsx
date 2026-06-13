@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import {
   AllPostsList,
@@ -15,6 +15,8 @@ export async function generateMetadata({
   params,
 }: APIRequestParams): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations({ locale });
 
   return {
@@ -25,6 +27,8 @@ export async function generateMetadata({
 
 export default async function Blog({ params }: APIRequestParams) {
   const { locale } = await params;
+  setRequestLocale(locale);
+
   const posts = await getMetadata({ dataSourceType: "posts", locale });
 
   return (

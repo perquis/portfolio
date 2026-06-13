@@ -204,8 +204,9 @@ const TreeIndicator = forwardRef<
 
 TreeIndicator.displayName = "TreeIndicator";
 
-interface FolderComponentProps
-  extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> {}
+interface FolderComponentProps extends React.ComponentPropsWithoutRef<
+  typeof AccordionPrimitive.Item
+> {}
 
 type FolderProps = {
   expandedItems?: string[];

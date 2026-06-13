@@ -38,7 +38,11 @@ export const getMetadataList = async (
             .catch(() => null),
         ),
       )
-        .then((results) => results.filter((item): item is Metadata => item !== null && !Array.isArray(item)))
+        .then((results) =>
+          results.filter(
+            (item): item is Metadata => item !== null && !Array.isArray(item),
+          ),
+        )
         .catch(handleFilePathError),
     )
     .catch(handleFilePathError);

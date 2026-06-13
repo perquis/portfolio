@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 
 import type { APIRequestParams } from "@/interfaces/i18n";
 import type { Location } from "@/interfaces/markdown";
@@ -22,6 +23,8 @@ export const generateMetadata =
   (dataSourceType: DataSourceResourcesConfig["dataSourceType"]) =>
   async (args: APIRequestParams): Promise<Metadata> => {
     const { locale, slug } = await args.params;
+    setRequestLocale(locale);
+
     const metadataList = await getMetadata({ dataSourceType, locale });
 
     const metadata = metadataList.find((metadata) => metadata.slug === slug);
@@ -40,6 +43,8 @@ export const generateMetadata =
 export const MarkdownPageSSR = (location: Location) =>
   async function SSR({ params }: APIRequestParams) {
     const { slug, locale } = await params;
+    setRequestLocale(locale);
+
     const { default: MarkdownPage } = await import(
       `@/app/(resources)/${location}/${locale}/${slug}/${slug}.mdx`
     );

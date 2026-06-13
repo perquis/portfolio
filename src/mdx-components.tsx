@@ -24,8 +24,8 @@ import {
   DynamicImage,
   Emoji,
   Feedback,
-  FormField,
   Form,
+  FormField,
   Grid,
   IconButton,
   Input,
@@ -52,13 +52,13 @@ import {
   VideoPlayer,
   Workflows,
 } from "@/shared/ui";
-import CodeBlock from "@/shared/ui/code-block/code-block";
-import Code from "@/shared/ui/code/code";
 import AnimatedBeam from "@/shared/ui/animated-beam/animated-beam";
 import AnimatedGradientText from "@/shared/ui/animated-gradient-text/animated-gradient-text";
 import AnimatedShinyText from "@/shared/ui/animated-shiny-text/animated-shiny-text";
 import BorderBeam from "@/shared/ui/border-beam/border-beam";
+import CodeBlock from "@/shared/ui/code-block/code-block";
 import CodeComparison from "@/shared/ui/code-comparison/code-comparison";
+import Code from "@/shared/ui/code/code";
 import FileTree from "@/shared/ui/file-tree/file-tree";
 import Iphone15Pro from "@/shared/ui/iphone-15-pro/iphone-15-pro";
 import MotionPicture from "@/shared/ui/motion-picture/motion-picture";

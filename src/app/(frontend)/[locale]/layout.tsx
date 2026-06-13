@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { GeistMono } from "geist/font/mono";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { ViewTransitions } from "next-view-transitions";
 import { Inter } from "next/font/google";
 import { type PropsWithChildren, Suspense } from "react";
@@ -26,6 +26,8 @@ export default async function AppLayout({
   params,
 }: PropsWithChildren & APIRequestParams) {
   const { locale } = await params;
+  setRequestLocale(locale);
+
   const [messages] = await Promise.all([getMessages()]);
 
   return (

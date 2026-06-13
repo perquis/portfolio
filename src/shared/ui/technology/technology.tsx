@@ -1,5 +1,8 @@
 import { Grid } from "@/shared/icons/generals";
-import { StackIcon, type StackIconName } from "@/shared/icons/programming-languages/stack-icon";
+import {
+  StackIcon,
+  type StackIconName,
+} from "@/shared/icons/programming-languages/stack-icon";
 import { Paragraph, Section, Title } from "@/shared/ui";
 
 type TTechnology = {

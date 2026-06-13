@@ -45,7 +45,6 @@ export const useAnimate = () => {
     return () => {
       window.removeEventListener("resize", resizeEvent);
     };
-
   }, []);
 
   const actions = useMemo(

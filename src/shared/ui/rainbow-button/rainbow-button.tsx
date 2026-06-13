@@ -2,8 +2,7 @@ import React from "react";
 
 import { cn } from "@/libs/utils";
 
-interface RainbowButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export default function RainbowButton({
   children,

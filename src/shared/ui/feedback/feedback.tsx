@@ -1,16 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 
 import { emojis } from "@/data";
-import {
-  IconButton,
-  Motion,
-  Paragraph,
-  Section,
-  Title,
-} from "@/shared/ui";
+import { IconButton, Motion, Paragraph, Section, Title } from "@/shared/ui";
 
 const Emoji = dynamic(() => import("@/shared/ui/emoji/emoji"), { ssr: false });
 
