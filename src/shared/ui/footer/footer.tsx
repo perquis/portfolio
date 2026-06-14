@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useLocale, useTranslations } from "next-intl";
 
-import { LanguageSwitcher, ToggleTheme } from "@/components";
+import { LanguageSwitcher, ThemeToggler } from "@/components";
 import { Logo, Regular, Section } from "@/shared/ui";
 
 export default function Footer() {
@@ -23,7 +23,7 @@ export default function Footer() {
             {t("FOOTER_ALL_RIGHTS_RESERVED")}
           </Regular>
           <LanguageSwitcher />
-          <ToggleTheme />
+          <ThemeToggler />
         </Section>
       </Section>
     </footer>

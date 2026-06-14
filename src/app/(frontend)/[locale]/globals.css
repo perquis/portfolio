@@ -41,6 +41,29 @@ html {
   outline: none !important;
 }
 
+/* Animated theme toggler (View Transitions) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  /* Disable the browser's default cross-fade so the clip-path reveal is clean. */
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration, 400ms);
+}
+
+/* Keep the old snapshot fully opaque underneath while the new one is clipped in. */
+[data-magicui-theme-vt="active"]::view-transition-old(root) {
+  z-index: 0;
+}
+
+[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  z-index: 1;
+  /* Pin the collapsed shape before the JS animation starts so there is no flash. */
+  clip-path: var(--magicui-theme-vt-clip-from);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -75,7 +98,7 @@ html {
     --color-5: 90 100% 63%;
   }
 
-  [data-theme="dark"] {
+  .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;

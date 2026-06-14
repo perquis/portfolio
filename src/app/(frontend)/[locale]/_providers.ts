@@ -6,6 +6,7 @@ import { composeProviders, createProvider } from "@/shared/utils";
 
 const providers = [
   createProvider(ThemeProvider, {
+    attribute: "class",
     enableSystem: true,
     disableTransitionOnChange: true,
   }),

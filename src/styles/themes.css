@@ -6,11 +6,11 @@
   stop-color: var(--tw-zinc-50);
 }
 
-html[data-theme="dark"] .stop-color-white {
+html.dark .stop-color-white {
   stop-color: var(--tw-zinc-950);
 }
 
-html[data-theme="dark"] .stop-color-zinc {
+html.dark .stop-color-zinc {
   stop-color: var(--tw-zinc-900);
 }
 
